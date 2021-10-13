@@ -10,7 +10,6 @@ import 'homecardlist.dart';
 class ParallaxCards extends StatelessWidget {
   const ParallaxCards({
     Key? key,
-
     required this.pageVisibility,
     this.imageUrl,
     this.discription,
@@ -81,7 +80,9 @@ class ParallaxCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var image = Image(
-        image: OptimizedCacheImageProvider(imageUrl!),
+        image: OptimizedCacheImageProvider(
+          imageUrl!,
+        ),
         fit: BoxFit.cover,
         alignment: FractionalOffset(
           0.5 + (pageVisibility.pagePosition / 3),

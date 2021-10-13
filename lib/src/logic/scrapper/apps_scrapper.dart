@@ -10,7 +10,7 @@ abstract class BaseScrapper {
   Future<Response> init({required String link});
   BeautifulSoup parse(String response);
   List<Map<String, dynamic>> archiveData(BeautifulSoup data);
-  List<Map<String, dynamic>> content(String data);
+  Map<String, dynamic> content(String data);
   dynamic headline(String response);
   dynamic archive(String response);
 }
@@ -34,7 +34,6 @@ class Scrapper extends BaseScrapper with UiLoggy {
 
   @override
   List<Map<String, dynamic>> archiveData(BeautifulSoup data) {
-     
     var news = data.find(
       'ul',
       class_: 'inner-lead-story-bottom',
@@ -52,7 +51,7 @@ class Scrapper extends BaseScrapper with UiLoggy {
   }
 
   @override
-  List<Map<String, dynamic>> content(String data) {
+  Map<String, dynamic> content(String data) {
     var parseData = parse(data);
     var news = parseData.find(
       'div',
@@ -63,9 +62,10 @@ class Scrapper extends BaseScrapper with UiLoggy {
     newsMap.add({
       'title': news!.h1!.text,
       'image': news.img!.attributes['src'],
-      'content': news.find('p', id: 'article-123')!.text
+      'content': news.find('p', id: 'article-123')!.text,
+      'type': news.find('p', class_: 'floatLeft')!.text
     });
-    return newsMap;
+    return newsMap[0];
   }
 
   @override

@@ -68,11 +68,11 @@ abstract class AppPages {
       page: () => const PrivacyPage(),
     ),
     GetPage(
-      name: Routes.article,
-      page: () => const ArticlePage(),
-      binding: BindingsBuilder(() {
-         Get.lazyPut<ArticleController>(() => ArticleController());
-       })
-    ),
+        name: Routes.article,
+        page: () => const ArticlePage(),
+        binding: BindingsBuilder(() {
+          Get.lazyPut<ArticleController>(() => ArticleController());
+        })),
+    GetPage(name: Routes.more, page: () => const MorePage())
   ];
 }

@@ -10,4 +10,5 @@ export 'language/language_page.dart';
 export 'change_password/change_password_page.dart';
 export 'terms&condition/term_and_condition.dart';
 export 'privacy/privacy_page.dart';
+export 'more/more_page.dart';
 export 'article/article_page.dart';

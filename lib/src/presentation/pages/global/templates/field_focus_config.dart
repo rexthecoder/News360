@@ -17,8 +17,13 @@ class FieldWithFocusConfig extends StatelessWidget {
     required this.focusNode,
     this.keyboardType,
     this.hintText,
+    this.fieldController,
     required this.prefix,
-    required this.isFocus, this.suffix,
+    required this.isFocus,
+    this.suffix,
+    this.validator,
+    this.onSaved,
+    this.textInputAction,
   }) : super(key: key);
 
   final dynamic controller;
@@ -28,12 +33,22 @@ class FieldWithFocusConfig extends StatelessWidget {
   final IconData prefix;
   final String isFocus;
   final Widget? suffix;
+  final String? Function(String?)? validator;
+  final TextEditingController? fieldController;
+  final void Function(String?)? onSaved;
+  final TextInputAction? textInputAction;
+
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       focusNode: focusNode,
       keyboardAppearance: Brightness.dark,
+      validator: validator,
+      controller: fieldController,
+      onSaved: onSaved,
       keyboardType: keyboardType,
+      enableSuggestions: true,
+      textInputAction: textInputAction ?? TextInputAction.next,
       style: context.bodyText1.copyWith(color: AppColors.blackPrimary),
       cursorColor: AppColors.purplePrimary,
       decoration: InputDecoration(

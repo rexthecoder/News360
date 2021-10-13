@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
+import 'package:news360/src/logic/Authentication/auth_configuration.dart';
+import 'package:news360/src/logic/model/user_models/user_data_model.dart';
 
 class RegisterController extends GetxController with UiLoggy {
+  //Firebase configuration
+  final _authConfiguration = AuthConfiguration();
+  final userModel = UserResponseModel();
+
+  //Textfield managing
+  final GlobalKey<FormState> _registerFormKey = GlobalKey<FormState>();
+  final TextEditingController _username = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+
   //Node fo our textfields
   final FocusNode _emailFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
@@ -35,11 +47,28 @@ class RegisterController extends GetxController with UiLoggy {
     userNameIsFocus(_userNameFocusNode.hasFocus.toString());
   }
 
+// Function with side effect. Validate and register user at the same time
+  void registerUser(context) {
+    if (_registerFormKey.currentState!.validate()) {
+      _registerFormKey.currentState!.save();
+      _authConfiguration.createUser(
+        context,
+        email: userModel.email!,
+        password: userModel.password!,
+        username: userModel.username!,
+      );
+    }
+  }
+
   //Controller getters
   FocusNode get emailFocusNode => _emailFocusNode;
   FocusNode get passwordFocusNode => _passwordFocusNode;
   FocusNode get repeatPasswordFocusNode => _repeatPasswordFocusNode;
   FocusNode get userNameFocusNode => _userNameFocusNode;
+  GlobalKey<FormState> get registerFormKey => _registerFormKey;
+  TextEditingController get username => _username;
+  TextEditingController get password => _password;
+  TextEditingController get email => _email;
   void get onfocusChange => _onFocusChange();
   void get onPasswordFocusChange => _onPasswordFocusChange();
 

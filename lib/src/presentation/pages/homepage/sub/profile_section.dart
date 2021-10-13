@@ -42,16 +42,18 @@ class ProfilePage extends GetView<ProfileController> {
               const Space.normal(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   AutoSizeText(
-                    'Megan Ashby',
+                    '${controller.user.value.username}',
                     style: context.h6.copyWith(
                       fontWeight: FontWeight.bold,
                       color: AppColors.blackPrimary,
                     ),
                   ),
                   AutoSizeText(
-                    'meganAby@gmail.com',
+                    '${controller.user.value.email}',
+                    overflow: TextOverflow.fade,
                     style: context.bodyText1.copyWith(
                       color: AppColors.greyPrimary,
                     ),
@@ -83,8 +85,8 @@ class ProfilePage extends GetView<ProfileController> {
                 return Padding(
                   padding: context.spacing().insets.vertical.semiSmall,
                   child: ProfileCard(
-                    onTap: ()=> controller.navigateToNextScreen(index),
-                    label: profileList[index]),
+                      onTap: () => controller.navigateToNextScreen(index),
+                      label: profileList[index]),
                 );
               }),
           const Space.small(),

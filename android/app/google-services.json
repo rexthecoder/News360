@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "628322244603",
+    "firebase_url": "https://banking-qlaxwc.firebaseio.com",
+    "project_id": "banking-qlaxwc",
+    "storage_bucket": "banking-qlaxwc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628322244603:android:a3fe42b55bf6eeaa701d5e",
+        "android_client_info": {
+          "package_name": "com.example.news360"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628322244603-s4is7e83qenhjnbf44ts6mo3i063vie1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8jgTASDeaHnfwnZh4GkQB4ZiP8aN1PsE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628322244603-s4is7e83qenhjnbf44ts6mo3i063vie1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

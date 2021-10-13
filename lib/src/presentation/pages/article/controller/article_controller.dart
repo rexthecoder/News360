@@ -7,24 +7,28 @@ class ArticleController extends GetxController {
   final scrollcontroller = ScrollController();
   final _scraping = Scrapper();
   late final int index;
-  List contents = [];
+  RxMap contents = {}.obs;
   final scrollOffset = 0.0.obs;
 
   @override
   void onInit() {
+    scrappingInit();
+    super.onInit();
+  }
+
+  Future<void> scrappingInit() async {
     index = Get.arguments['index'];
     var url = Get.arguments['url'];
-    print(url);
     SchedulerBinding.instance!.addPostFrameCallback((_) async {
       scrollcontroller.addListener(() {
         scrollOffset(scrollcontroller.position.pixels);
       });
-      // var response = await _scraping.init(
-      //     link: 'https://www.ghanaweb.com/GhanaHomePage/NewsArchive/$url');
-      // contents = _scraping.content(response.body);
+      var response = await _scraping.init(
+        link: 'https://www.ghanaweb.com/$url',
+      );
+      contents = _scraping.content(response.body).obs;
 
-      // print(contents);
+      print(url);
     });
-    super.onInit();
   }
 }

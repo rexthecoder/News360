@@ -198,10 +198,13 @@ class MainPage extends GetView<HomeController> {
                             ),
                           ),
                           const Space.semiSmall(),
-                          AutoSizeText(
-                            'See All',
-                            style: context.bodyText2.copyWith(
-                              color: AppColors.greyPrimary,
+                          InkWell(
+                            onTap: () => Get.toNamed('more'),
+                            child: AutoSizeText(
+                              'See All',
+                              style: context.bodyText2.copyWith(
+                                color: AppColors.greyPrimary,
+                              ),
                             ),
                           ),
                         ],
@@ -288,7 +291,7 @@ class ArticleCards extends GetView<HomeController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AutoSizeText(
-                  'Random',
+                  controller.selectedCategory.value,
                   style: context.bodyText2.copyWith(
                     color: AppColors.greyPrimary,
                   ),

@@ -1,7 +1,13 @@
+import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
+import 'package:news360/src/logic/authentication/auth_configuration.dart';
+import 'package:news360/src/logic/model/user_models/user_data_model.dart';
 
 class ProfileController extends GetxController with UiLoggy {
+  Rx<UserResponseModel> user = UserResponseModel().obs;
+
+  AuthConfiguration auth = AuthConfiguration();
   // Method for routing to a diffrent screen
   void navigateToNextScreen(int index) {
     logDebug('Track:: $index');
@@ -24,5 +30,17 @@ class ProfileController extends GetxController with UiLoggy {
         logError('$index has no route path attached to it');
         return 'home';
     }
+  }
+
+  @override
+  void onInit() {
+    SchedulerBinding.instance!.addPostFrameCallback((_) {
+      var userData = auth.userInfo();
+
+      user.value.email = userData!.email;
+      user.value.username = userData.displayName;
+    });
+
+    super.onInit();
   }
 }

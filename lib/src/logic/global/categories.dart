@@ -22,7 +22,15 @@ const List<String> categories = [
 const List<String> chipCategories = [
   'Random',
   'Sports',
-  'Gaming',
-  'Politics',
-  'History'
+  'Business',
+  'Entertainment',
+  'Africa'
 ];
+
+enum isCategory {
+  random,
+  sports,
+  business,
+  entertainment,
+  africa,
+}

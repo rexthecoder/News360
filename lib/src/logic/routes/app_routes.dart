@@ -22,5 +22,6 @@ abstract class Routes {
   static const terms = '/terms';
   static const privacy = '/privacy';
   static const article = '/article';
+  static const more = '/more';
   static const test = '/test';
 }
