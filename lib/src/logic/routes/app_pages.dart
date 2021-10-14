@@ -5,6 +5,7 @@ import 'package:news360/src/presentation/pages/change_password/controller/change
 import 'package:news360/src/presentation/pages/homepage/controller/home_controller.dart';
 import 'package:news360/src/presentation/pages/homepage/controller/profile_controller.dart';
 import 'package:news360/src/presentation/pages/language/controller/lanaguage_controller.dart';
+import 'package:news360/src/presentation/pages/login/controller/login_controller.dart';
 import 'package:news360/src/presentation/pages/pages.dart';
 
 part './app_routes.dart';
@@ -16,10 +17,12 @@ abstract class AppPages {
       page: () => OnBoardingPage(),
     ),
     GetPage(
-      name: Routes.login,
-      transition: Transition.noTransition,
-      page: () => const LoginPage(),
-    ),
+        name: Routes.login,
+        transition: Transition.noTransition,
+        page: () => const LoginPage(),
+        binding: BindingsBuilder(() {
+          Get.put(LoginController());
+        })),
     GetPage(
       name: Routes.forgetPassword,
       page: () => const ForgetPasswordPage(),
@@ -41,6 +44,7 @@ abstract class AppPages {
       page: () => const FavoritePage(),
     ),
     GetPage(
+        transition: Transition.upToDown,
         name: Routes.home,
         page: () => const HomePage(),
         binding: BindingsBuilder(() {

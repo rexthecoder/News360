@@ -3,6 +3,7 @@ import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
+import 'package:news360/src/logic/global/variables.dart';
 import 'package:news360/src/logic/model/user_models/user_data_model.dart';
 
 import 'error_tracker.dart';
@@ -26,6 +27,8 @@ class AuthConfiguration with UiLoggy, ErrorTracker {
     //Progress  dialog
     final progress = ProgressHUD.of(context);
     progress?.showWithText('Loading...');
+    isLoading.value = true;
+
     try {
       await createUserWithEmail(email, password, username, progress);
     } on FirebaseAuthException catch (e) {
@@ -86,7 +89,9 @@ class AuthConfiguration with UiLoggy, ErrorTracker {
         password: password,
       );
       progress?.dismiss();
-      Get.toNamed('/home');
+      Get.offAndToNamed(
+        '/home',
+      );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         logDebug('No user found for that email.');

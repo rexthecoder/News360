@@ -79,7 +79,9 @@ class LoginController extends GetxController
     super.onInit();
   }
 
-  void loginUser(context) {
+  void loginUser(
+    context,
+  ) {
     if (_loginFormKey.currentState!.validate()) {
       _loginFormKey.currentState!.save();
       _authConfiguration.loginUser(

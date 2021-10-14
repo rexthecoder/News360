@@ -29,7 +29,7 @@ class _ButtonEffectState extends State<ButtonEffect>
         if (status == AnimationStatus.completed) {
           scaleController.reverse();
 
-          Get.toNamed(
+          Get.offAndToNamed(
             '/login',
           );
         }
@@ -70,7 +70,6 @@ class _ButtonEffectState extends State<ButtonEffect>
                   shape: BoxShape.circle, color: AppColors.purpleLight),
               child: InkWell(
                 onTap: () {
-                 
                   scaleController.forward();
                 },
                 child: AnimatedBuilder(
