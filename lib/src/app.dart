@@ -7,13 +7,11 @@ import 'package:get/get.dart';
 import 'package:spaces/spaces.dart';
 
 import 'logic/routes/app_pages.dart';
-import 'logic/test/test_screen.dart';
 import 'presentation/theme/app_theme.dart';
 import 'settings/settings_controller.dart';
 
 //Theme
 final _lightTheme = AppTheme.lightTheme();
-
 
 /// The Widget that configures your application.
 class App extends StatelessWidget {
@@ -26,7 +24,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     // Glue the SettingsController to the MaterialApp.
     //
     // The AnimatedBuilder Widget listens to the SettingsController for changes.
@@ -37,10 +35,10 @@ class App extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           initialRoute: Routes.onBoarding,
-          theme:  _lightTheme ,
+          theme: _lightTheme,
           defaultTransition: Transition.fade,
           // showPerformanceOverlay: true,
-    // home: TestingScreen(),
+          // home: TestingScreen(),
           builder: (context, child) => Spacing(
             dataBuilder: (context) {
               final mediaQuery = MediaQuery.of(context);

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:news360/src/presentation/pages/article/controller/article_controller.dart';
+import 'package:news360/src/presentation/pages/categoriesmore/controller/category_more_controller.dart';
 import 'package:news360/src/presentation/pages/change_password/controller/change_password_controller.dart';
 import 'package:news360/src/presentation/pages/homepage/controller/home_controller.dart';
 import 'package:news360/src/presentation/pages/homepage/controller/profile_controller.dart';
@@ -73,6 +74,12 @@ abstract class AppPages {
         binding: BindingsBuilder(() {
           Get.lazyPut<ArticleController>(() => ArticleController());
         })),
-    GetPage(name: Routes.more, page: () => const MorePage())
+    GetPage(name: Routes.more, page: () => const MorePage()),
+    GetPage(
+        name: Routes.categorymore,
+        page: () => const CategoryMorePage(),
+        binding: BindingsBuilder(() {
+          Get.lazyPut<CategoryMoreController>(() => CategoryMoreController());
+        }))
   ];
 }

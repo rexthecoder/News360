@@ -7,7 +7,6 @@ import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:spaces/spaces.dart';
 
 import '../pages.dart';
-import 'controller/more_controller.dart';
 
 class MorePage extends GetView<HomeController> {
   const MorePage({Key? key}) : super(key: key);

@@ -11,10 +11,7 @@ import 'package:animated_clipper/animated_clipper.dart';
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-
 import 'package:get/get.dart';
-import 'package:news360/resources/assets/assets.gen.dart';
 import 'package:news360/src/logic/global/categories.dart';
 import 'package:news360/src/presentation/pages/global/templates/bottom_navigation/fancy_bottom_bar.dart';
 
@@ -28,7 +25,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:spaces/spaces.dart';
 
 import 'components/home_parallax_card.dart';
-import 'components/homecardlist.dart';
 import 'components/search_bar.dart';
 import 'controller/home_controller.dart';
 import 'sub/bookmark_section.dart';

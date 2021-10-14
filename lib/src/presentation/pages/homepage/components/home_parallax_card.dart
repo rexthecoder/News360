@@ -5,8 +5,6 @@ import 'package:news360/src/presentation/pages/onboarding/components/card_transf
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:optimized_cached_image/optimized_cached_image.dart';
 
-import 'homecardlist.dart';
-
 class ParallaxCards extends StatelessWidget {
   const ParallaxCards({
     Key? key,

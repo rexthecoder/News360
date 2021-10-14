@@ -2,7 +2,6 @@ import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:http/http.dart';
 import 'package:news360/src/logic/scrapper/apps_scrapper.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:optimized_cached_image/optimized_cached_image.dart';
@@ -38,11 +37,9 @@ class _TestingScreenState extends State<TestingScreen> {
       body: SafeArea(
           child: StreamBuilder<FileResponse>(
               stream: fileStream,
-
-            
               builder: (context, snapshot) {
                 if (snapshot.data == null) {
-                  return Text('Loading');
+                  return const Text('Loading');
                 }
                 FileInfo output = snapshot.data as FileInfo;
                 initHeadlineScrapping(output);
@@ -72,7 +69,7 @@ class _TestingScreenState extends State<TestingScreen> {
                           ),
                         ),
                       ],
-                      ListTile(),
+                      const ListTile(),
                       Text('Hello World',
                           style: context.h5
                               .copyWith(color: AppColors.blackDarker)),
@@ -105,11 +102,7 @@ class _DisplayContentState extends State<DisplayContent> {
 
   @override
   void initState() {
-    SchedulerBinding.instance!.addPostFrameCallback((_) async {
-      var response = await scraping.init(
-          link:
-              'https://www.ghanaweb.com/GhanaHomePage/NewsArchive/${widget.link}');
-    });
+    SchedulerBinding.instance!.addPostFrameCallback((_) async {});
 
     super.initState();
   }

@@ -3,12 +3,11 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
-import 'package:news360/src/logic/Authentication/auth_configuration.dart';
 import 'package:news360/src/logic/global/categories.dart';
-import 'package:news360/src/logic/model/user_models/user_data_model.dart';
 import 'package:news360/src/logic/scrapper/apps_scrapper.dart';
 
-class HomeController extends GetxController with SingleGetTickerProviderMixin {
+class HomeController extends GetxController
+    with SingleGetTickerProviderMixin, UiLoggy {
   // Local Variables
   final RxInt _selectedPosition = 0.obs;
   final Scrapper _scrapper = Scrapper();

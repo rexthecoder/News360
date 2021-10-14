@@ -4,11 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news360/src/logic/global/categories.dart';
 import 'package:news360/src/presentation/pages/global/templates/export.dart';
-import 'package:news360/src/presentation/pages/homepage/controller/home_controller.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:spaces/spaces.dart';
 
-class CategoriesPage extends GetView<HomeController> {
+class CategoriesPage extends GetView {
   const CategoriesPage({Key? key}) : super(key: key);
 
   @override
@@ -44,7 +43,10 @@ class CategoriesPage extends GetView<HomeController> {
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: () => debugPrint('Hello'),
+                      onTap: () {
+                        Get.toNamed('/categorymore',
+                            arguments: chipCategories[index]);
+                      },
                       child: SizedBox(
                         width: 160,
                         height: 78,
