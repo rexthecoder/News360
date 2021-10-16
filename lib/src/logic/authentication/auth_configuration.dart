@@ -1,8 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_styled_toast/flutter_styled_toast.dart';
-import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
-import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:news360/src/logic/global/variables.dart';
 import 'package:news360/src/logic/model/user_models/user_data_model.dart';
 
