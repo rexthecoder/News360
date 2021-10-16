@@ -133,6 +133,7 @@ class MainPage extends GetView<HomeController> {
                         initState: (_) {},
                         builder: (_) {
                           return Skeleton(
+                            isLoading: isLoading.value,
                             skeleton: Padding(
                               padding: context
                                   .spacing()
@@ -149,7 +150,6 @@ class MainPage extends GetView<HomeController> {
                                 ),
                               ),
                             ),
-                            isLoading: true,
                             child: PageTransformer(
                               pageViewBuilder: (context, visibilityResolver) {
                                 return PageView.builder(
@@ -161,19 +161,29 @@ class MainPage extends GetView<HomeController> {
                                   itemBuilder: (context, index) {
                                     final pageVisibility = visibilityResolver
                                         .resolvePageVisibility(index);
-                                    return Padding(
-                                      padding: context
-                                          .spacing()
-                                          .insets
-                                          .horizontal
-                                          .normal
-                                          .copyWith(right: 10),
-                                      child: ParallaxCards(
-                                        discription: controller
-                                            .headlineList[index]['title'],
-                                        pageVisibility: pageVisibility,
-                                        imageUrl: controller.headlineList[index]
-                                            ['image'],
+                                    return GestureDetector(
+                                      onTap: () => Get.toNamed(
+                                        'article',
+                                        arguments: {
+                                          'index': index,
+                                          'url': controller.headlineList[index]
+                                              ['link']
+                                        },
+                                      ),
+                                      child: Padding(
+                                        padding: context
+                                            .spacing()
+                                            .insets
+                                            .horizontal
+                                            .normal
+                                            .copyWith(right: 10),
+                                        child: ParallaxCards(
+                                          discription: controller
+                                              .headlineList[index]['title'],
+                                          pageVisibility: pageVisibility,
+                                          imageUrl: controller
+                                              .headlineList[index]['image'],
+                                        ),
                                       ),
                                     );
                                   },
@@ -232,16 +242,24 @@ class MainPage extends GetView<HomeController> {
                       init: HomeController(),
                       initState: (_) {},
                       builder: (_) {
-                        return SizedBox(
-                          child: ListView.builder(
-                            itemCount: controller.newsList.length,
-                            physics: const NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemBuilder: (context, index) => ArticleCards(
-                              index: index,
-                              url: controller.newsList[index]['link'],
-                              image: controller.newsList[index]['image'],
-                              title: controller.newsList[index]['title'],
+                        return Skeleton(
+                          isLoading: isLoading.value,
+                          skeleton: SizedBox(
+                              height: 300,
+                              child: SkeletonListView(
+                                itemCount: 4,
+                              )),
+                          child: SizedBox(
+                            child: ListView.builder(
+                              itemCount: controller.newsList.length,
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemBuilder: (context, index) => ArticleCards(
+                                index: index,
+                                url: controller.newsList[index]['link'],
+                                image: controller.newsList[index]['image'],
+                                title: controller.newsList[index]['title'],
+                              ),
                             ),
                           ),
                         );

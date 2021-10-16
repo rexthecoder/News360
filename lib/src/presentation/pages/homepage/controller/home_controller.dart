@@ -40,6 +40,10 @@ class HomeController extends GetxController
 
   // Update Faviorte cards
   void interestSelection(bool isSelected, int index) {
+    // selectedInterestFavorite.updateAll((key, value) => false);
+    if (selectedInterestFavorite[index] == true) {
+      return;
+    }
     selectedInterestFavorite.updateAll((key, value) => false);
     selectedInterestFavorite[index] = !isSelected;
     selectedCategory(chipCategories[index]);
@@ -66,6 +70,7 @@ class HomeController extends GetxController
   ///Method to query all the information I need for news scrapping
   void scrappingInit() {
     SchedulerBinding.instance!.addPostFrameCallback((_) async {
+      isLoading.value = false;
       try {
         fileStream = DefaultCacheManager()
             .getFileStream(
@@ -84,6 +89,7 @@ class HomeController extends GetxController
           },
         );
       } catch (e) {
+        isLoading.value = false;
         logError(e.toString());
       }
     });
@@ -99,7 +105,7 @@ class HomeController extends GetxController
         return 'https://www.ghanaweb.com/GhanaHomePage/business/browse.archive.php?more';
       case 'Entertainment':
         return 'https://www.ghanaweb.com/GhanaHomePage/entertainment/browse.archive.php?more';
-      case 'Africat':
+      case 'Africa':
         return 'https://www.ghanaweb.com/GhanaHomePage/africa/browse.archive.php?more';
       default:
         return 'https://www.ghanaweb.com/GhanaHomePage/NewsArchive/browse.archive.php?more';

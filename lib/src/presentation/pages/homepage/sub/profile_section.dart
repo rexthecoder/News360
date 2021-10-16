@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:get/get.dart';
+import 'package:news360/resources/assets/assets.gen.dart';
 import 'package:news360/src/logic/global/profile_list.dart';
 import 'package:news360/src/logic/global/variables.dart';
 import 'package:news360/src/presentation/pages/global/templates/export.dart';
@@ -41,8 +42,9 @@ class ProfilePage extends GetView<ProfileController> {
                     CircleAvatar(
                       backgroundColor: AppColors.greyLight,
                       maxRadius: 40,
-                      backgroundImage: const NetworkImage(
-                          'https://www.byrdie.com/thmb/Jjj54SaUGDzwW7h5MxQI8hsNXnw=/1000x1000/filters:fill(auto,1)/Stocksy_txp67ff3d0fWrz200_Medium_3514532-crop-29154df0578b40309acce7c668e12faa.jpg'),
+                      backgroundImage: AssetImage(
+                        Assets.images.avatargold.path,
+                      ),
                     ),
                     const Space.normal(),
                     Column(
@@ -96,7 +98,7 @@ class ProfilePage extends GetView<ProfileController> {
                     }),
                 const Space.small(),
                 InkWell(
-                  onTap: () => controller.handleSignOut(),
+                  onTap: () => controller.handleSignOut(context),
                   child: const ProfileCard(
                     label: 'Sign Out',
                     trailing: Icon(

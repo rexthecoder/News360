@@ -80,8 +80,10 @@ class ParallaxCards extends StatelessWidget {
     var image = Image(
         image: OptimizedCacheImageProvider(
           imageUrl!,
+          scale: 1.0,
         ),
         fit: BoxFit.cover,
+        filterQuality: FilterQuality.high,
         alignment: FractionalOffset(
           0.5 + (pageVisibility.pagePosition / 3),
           0.5,

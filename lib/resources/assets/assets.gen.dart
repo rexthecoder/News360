@@ -8,6 +8,10 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  AssetGenImage get avatar => const AssetGenImage('assets/images/avatar.png');
+  AssetGenImage get avatargold =>
+      const AssetGenImage('assets/images/avatargold.jpg');
+  AssetGenImage get book => const AssetGenImage('assets/images/book.gif');
   AssetGenImage get facebookLogo =>
       const AssetGenImage('assets/images/facebook-logo.png');
   AssetGenImage get flutterLogo =>

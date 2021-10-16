@@ -7,16 +7,29 @@
  */
 
 const List<String> categories = [
+  '📺 News',
   '🏈 Sports',
-  '⚖️ Politics',
-  '🌞 Life',
-  '🎮 Gaming',
-  '🐻 Animals',
-  '🌴 Nature',
-  '🍔 Food',
-  '🎨 Art',
-  '📜 History',
-  '👗 Fashion',
+  '⚖️ Business',
+  '🎮 Entertainment',
+  '📜 Africa',
+  '🌞 Crime',
+  '📚 Politics',
+  '🎊 Regional',
+  '💊 Health',
+  '🖼  World',
+];
+
+const List<String> categoriesList = [
+  'News',
+  'Sports',
+  'Business',
+  'Entertainment',
+  'Africa',
+  'Crime',
+  'Politics',
+  'Regional',
+  'Health',
+  'World',
 ];
 
 const List<String> chipCategories = [

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:news360/src/presentation/pages/global/templates/export.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:optimized_cached_image/optimized_cached_image.dart';
+import 'package:skeletons/skeletons.dart';
 import 'package:spaces/spaces.dart';
 
 import 'controller/category_more_controller.dart';
@@ -34,16 +35,32 @@ class CategoryMorePage extends GetView<CategoryMoreController> {
               init: CategoryMoreController(),
               initState: (_) {},
               builder: (_) {
-                return SizedBox(
-                  child: ListView.builder(
-                    itemCount: controller.headline.length,
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) => CategoryCards(
-                      index: index,
-                      url: controller.headline[index]['link'],
-                      image: controller.headline[index]['image'],
-                      title: controller.headline[index]['title'],
+                return Skeleton(
+                  isLoading: controller.headline.isEmpty,
+                  skeleton: Padding(
+                    padding: context
+                        .spacing()
+                        .insets
+                        .horizontal
+                        .normal
+                        .copyWith(right: 10),
+                    child: SizedBox(
+                        height: 300,
+                        child: SkeletonListView(
+                          itemCount: 4,
+                        )),
+                  ),
+                  child: SizedBox(
+                    child: ListView.builder(
+                      itemCount: controller.headline.length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) => CategoryCards(
+                        index: index,
+                        url: controller.headline[index]['link'],
+                        image: controller.headline[index]['image'],
+                        title: controller.headline[index]['title'],
+                      ),
                     ),
                   ),
                 );

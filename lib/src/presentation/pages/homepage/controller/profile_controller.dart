@@ -9,7 +9,6 @@ import 'package:news360/src/presentation/theme/theme.dart';
 
 class ProfileController extends GetxController with UiLoggy {
   AuthenticationController auth = Get.find();
-  final progress = ProgressHUD.of(Get.context!);
 
   // Method for routing to a diffrent screen
   void navigateToNextScreen(int index) {
@@ -35,11 +34,12 @@ class ProfileController extends GetxController with UiLoggy {
     }
   }
 
-  Future<void> handleSignOut() async {
-    processSignOut();
+  Future<void> handleSignOut(context) async {
+    processSignOut(context);
   }
 
-  Future<void> processSignOut() async {
+  Future<void> processSignOut(context) async {
+    final progress = ProgressHUD.of(context);
     Get.back();
     progress?.showWithText('Signing out...');
     auth.signOut();

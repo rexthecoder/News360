@@ -10,70 +10,67 @@ import 'package:news360/src/presentation/pages/language/controller/lanaguage_con
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:spaces/spaces.dart';
 
-
 class LanguagePage extends GetView<LanguageController> {
   const LanguagePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GridPaper(
-      child: AppWrapper(
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  onPressed: () => Get.back(),
-                  icon: const Icon(EvaIcons.arrowBack),
+    return AppWrapper(
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: () => Get.back(),
+                icon: const Icon(EvaIcons.arrowBack),
+              ),
+              AutoSizeText(
+                'Language',
+                style: context.h5.copyWith(
+                  color: AppColors.blackPrimary,
                 ),
-                AutoSizeText(
-                  'Language',
-                  style: context.h5.copyWith(
-                    color: AppColors.blackPrimary,
-                  ),
+              ),
+              const SizedBox(
+                width: 25,
+              ),
+            ],
+          ),
+          const Space.normal(),
+          GetBuilder<LanguageController>(
+            init: LanguageController(),
+            builder: (_) {
+              return SizedBox(
+                child: ListView.builder(
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    controller.selectedInterestFavorite[index] =
+                        controller.selectedInterestFavorite[index] ?? false;
+                    bool? isSelected =
+                        controller.selectedInterestFavorite[index];
+                    return GestureDetector(
+                      onTap: () =>
+                          controller.interestSelection(isSelected!, index),
+                      child: LanguageAniamtionCard(
+                        label: lanaguages[index],
+                        state: isSelected,
+                      ),
+                    );
+                  },
+                  itemCount: lanaguages.length,
                 ),
-                const SizedBox(
-                  width: 25,
-                ),
-              ],
-            ),
-            const Space.normal(),
-            GetBuilder<LanguageController>(
-              init: LanguageController(),
-              builder: (_) {
-                return SizedBox(
-                  child: ListView.builder(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      controller.selectedInterestFavorite[index] =
-                          controller.selectedInterestFavorite[index] ?? false;
-                      bool? isSelected =
-                          controller.selectedInterestFavorite[index];
-                      return GestureDetector(
-                        onTap: () =>
-                            controller.interestSelection(isSelected!, index),
-                        child: LanguageAniamtionCard(
-                          label: lanaguages[index],
-                          state: isSelected,
-                        ),
-                      );
-                    },
-                    itemCount: lanaguages.length,
-                  ),
-                );
-              },
-            )
+              );
+            },
+          )
 
-            // Padding(
-            //   padding: context.spacing().insets.horizontal.semiSmall,
-            //   child: const LanguageCard(
-            //     label: 'English',
-            //   ),
-            // )
-          ],
-        ),
+          // Padding(
+          //   padding: context.spacing().insets.horizontal.semiSmall,
+          //   child: const LanguageCard(
+          //     label: 'English',
+          //   ),
+          // )
+        ],
       ),
     );
   }

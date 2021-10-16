@@ -45,7 +45,7 @@ class CategoriesPage extends GetView {
                     return GestureDetector(
                       onTap: () {
                         Get.toNamed('/categorymore',
-                            arguments: chipCategories[index]);
+                            arguments: categoriesList[index]);
                       },
                       child: SizedBox(
                         width: 160,

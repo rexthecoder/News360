@@ -27,6 +27,7 @@ class ArticleController extends GetxController {
         link: 'https://www.ghanaweb.com/$url',
       );
       contents = _scraping.content(response.body).obs;
+      update();
     });
   }
 }
