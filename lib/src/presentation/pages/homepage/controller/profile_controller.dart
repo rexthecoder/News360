@@ -1,11 +1,7 @@
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
-import 'package:news360/src/logic/authentication/auth_configuration.dart';
 import 'package:news360/src/logic/authentication/authentication_controller.dart';
-import 'package:news360/src/logic/model/user_models/user_data_model.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
 
 class ProfileController extends GetxController with UiLoggy {
   AuthenticationController auth = Get.find();

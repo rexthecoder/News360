@@ -5,7 +5,6 @@ import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
-import 'package:news360/src/logic/authentication/auth_configuration.dart';
 import 'package:news360/src/logic/authentication/authentication_controller.dart';
 import 'package:news360/src/logic/authentication/authentication_state.dart';
 import 'package:news360/src/logic/model/user_models/user_data_model.dart';
@@ -13,7 +12,6 @@ import 'package:news360/src/logic/model/user_models/user_data_model.dart';
 class LoginController extends GetxController
     with SingleGetTickerProviderMixin, UiLoggy {
   //Firebase configuration
-  final _authConfiguration = AuthConfiguration();
   final userModel = UserResponseModel();
   final AuthenticationController _authenticationController = Get.find();
 

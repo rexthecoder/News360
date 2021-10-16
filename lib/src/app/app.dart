@@ -5,7 +5,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:news360/src/logic/authentication/authentication_controller.dart';
 import 'package:news360/src/logic/authentication/authentication_state.dart';
-import 'package:news360/src/presentation/pages/pages.dart';
 
 import 'package:spaces/spaces.dart';
 
