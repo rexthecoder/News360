@@ -138,7 +138,7 @@ class RegisterPage extends GetView<RegisterController> {
                   Align(
                     alignment: Alignment.center,
                     child: GestureDetector(
-                      onTap: () => Get.toNamed('/login'),
+                      onTap: () => Get.back(),
                       child: AutoSizeText(
                         "Already have an account? Sign In",
                         style: context.bodyText1.copyWith(
@@ -147,7 +147,7 @@ class RegisterPage extends GetView<RegisterController> {
                       ),
                     ),
                   ),
-                  const Space.normal()
+                  const Space.big()
                 ],
               ),
             ),

@@ -61,9 +61,10 @@ class LoginPage extends GetView<LoginController> {
                                   onSaved: (value) =>
                                       controller.userModel.email = value,
                                   validator: (value) {
-                                    if (!value!.contains('@gmail.com')) {
-                                      return 'Email can be only be gmail';
+                                    if (value!.isEmpty) {
+                                      return "Field can't be empty";
                                     }
+
                                     return null;
                                   },
                                   focusNode: controller.emailFocusNode,
@@ -84,7 +85,7 @@ class LoginPage extends GetView<LoginController> {
                                       controller.userModel.password = value,
                                   validator: (value) {
                                     if (value!.isEmpty) {
-                                      return 'Fill in the field';
+                                      return "Field can't be empty";
                                     }
 
                                     return null;
@@ -143,8 +144,9 @@ class LoginPage extends GetView<LoginController> {
                                 label: 'Sign In with Facebook',
                                 onPressed: () {},
                               ),
-                              const Space.big(),
-                              const Space.normal(),
+                              const SizedBox(
+                                height: 95,
+                              ),
                               Align(
                                 alignment: Alignment.center,
                                 child: GestureDetector(

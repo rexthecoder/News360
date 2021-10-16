@@ -18,40 +18,42 @@ class AuthConfiguration with UiLoggy, ErrorTracker {
   /// Method to create a new user a
   /// @Param
   /// email = "test@gmail.com", password = "******", username = "news360"
-  Future<void> createUser(
-    context, {
+  Future<dynamic> createUser({
     required String email,
     required String password,
     required String username,
   }) async {
-    //Progress  dialog
-    final progress = ProgressHUD.of(context);
-    progress?.showWithText('Loading...');
-    isLoading.value = true;
-
     try {
-      await createUserWithEmail(email, password, username, progress);
-    } on FirebaseAuthException catch (e) {
-      firebaseErrorTracker(e, context, email, progress);
-    } catch (e) {
-      progress?.dismiss();
-      showToast(
-        e.toString(),
-        context: context,
+      await createUserWithEmail(
+        email,
+        password,
+        username,
       );
+      return user.copyWith(
+        email: email,
+        password: password,
+        username: auth.currentUser?.displayName,
+      );
+    } on FirebaseAuthException catch (e) {
+      error.value = firebaseErrorTracker(e);
+    } catch (e) {
+      error.value = e.toString();
     }
   }
 
 // Firebase  processing is done here
   Future<void> createUserWithEmail(
-      String email, String password, String username, progress) async {
+    String email,
+    String password,
+    String username,
+  ) async {
     await auth.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
-    updateUsername(username: username);
-    progress?.dismiss();
-    Get.toNamed('/favorite');
+    updateUsername(
+      username: username,
+    );
   }
 
   /// Method to update user name
@@ -75,36 +77,35 @@ class AuthConfiguration with UiLoggy, ErrorTracker {
     }
   }
 
-  Future<void> loginUser(
-    context, {
+  Future<dynamic> loginUser({
     required String email,
     required String password,
   }) async {
-    //Progress  dialog
-    final progress = ProgressHUD.of(context);
-    progress?.showWithText('Loading...');
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-      progress?.dismiss();
-      Get.offAndToNamed(
-        '/home',
+      return user.copyWith(
+        email: email,
+        password: password,
+        username: auth.currentUser?.displayName,
       );
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        logDebug('No user found for that email.');
-        progress?.dismiss();
-        showToast('No user found for that email.', context: context);
-      } else if (e.code == 'wrong-password') {
-        logDebug('Wrong password provided for that user.');
-        progress?.dismiss();
-        showToast('Wrong password provided for that user.', context: context);
-      } else {
-        progress?.dismiss();
-        showToast('$e', context: context);
-      }
+      error.value = firebaseLoginErrorTracker(e);
+    } catch (e) {
+      error.value = e.toString();
     }
+  }
+
+  UserResponseModel currentUser() {
+    return user.copyWith(
+      email: auth.currentUser?.email,
+      username: auth.currentUser?.displayName,
+    );
+  }
+
+  Future<void> logOut() async {
+    await auth.signOut();
   }
 }

@@ -3,18 +3,21 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:news360/src/logic/authentication/authentication_controller.dart';
+import 'package:news360/src/logic/authentication/authentication_state.dart';
+import 'package:news360/src/presentation/pages/pages.dart';
 
 import 'package:spaces/spaces.dart';
 
-import 'logic/routes/app_pages.dart';
-import 'presentation/theme/app_theme.dart';
-import 'settings/settings_controller.dart';
+import '../logic/routes/app_pages.dart';
+import '../presentation/theme/app_theme.dart';
+import '../settings/settings_controller.dart';
 
 //Theme
 final _lightTheme = AppTheme.lightTheme();
 
 /// The Widget that configures your application.
-class App extends StatelessWidget {
+class App extends GetWidget<AuthenticationController> {
   const App({
     Key? key,
     required this.settingsController,
@@ -34,7 +37,11 @@ class App extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.onBoarding,
+          initialRoute: controller.state is UnAuthenticated
+              ? Routes.onBoarding
+              : controller.state is Authenticated
+                  ? Routes.home
+                  : Routes.onBoarding,
           theme: _lightTheme,
           defaultTransition: Transition.fade,
           // showPerformanceOverlay: true,
@@ -49,6 +56,17 @@ class App extends StatelessWidget {
             child: child!,
           ),
           getPages: AppPages.pages,
+          // home: Obx(() {
+          //   if (controller.state is UnAuthenticated) {
+          //     return OnBoardingPage();
+          //   }
+          //   if (controller.state is Authenticated) {
+          //     return const HomePage(
+          //         // user: (controller.state as Authenticated).user,
+          //         );
+          //   }
+          //   return OnBoardingPage();
+          // }),
 
           // Provide the generated AppLocalizations to the MaterialApp. This
           // allows descendant Widgets to display the correct translations

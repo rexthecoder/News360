@@ -7,7 +7,7 @@ class FavoriteController extends GetxController
     with SingleGetTickerProviderMixin, UiLoggy {
   final DataBaseService _databaseService = DataBaseService();
   Map<int, bool> selectedInterestFavorite = <int, bool>{0: true};
-  var addFavourite = <String, String>{};
+  var addFavourite = <String, String>{'0': categories[0]};
 
   void interestSelection(bool isSelected, int index) {
     // selectedInterestFavorite

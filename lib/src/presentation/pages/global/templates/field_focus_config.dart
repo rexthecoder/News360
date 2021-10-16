@@ -52,6 +52,8 @@ class FieldWithFocusConfig extends StatelessWidget {
       style: context.bodyText1.copyWith(color: AppColors.blackPrimary),
       cursorColor: AppColors.purplePrimary,
       decoration: InputDecoration(
+        errorMaxLines: 1,
+        errorText: null,
         filled: true,
         hintText: hintText,
         hintStyle: context.bodyText1.copyWith(color: AppColors.greyPrimary),

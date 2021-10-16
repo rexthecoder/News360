@@ -1,13 +1,16 @@
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
 import 'package:news360/src/logic/authentication/auth_configuration.dart';
+import 'package:news360/src/logic/authentication/authentication_controller.dart';
 import 'package:news360/src/logic/model/user_models/user_data_model.dart';
+import 'package:news360/src/presentation/theme/theme.dart';
 
 class ProfileController extends GetxController with UiLoggy {
-  Rx<UserResponseModel> user = UserResponseModel().obs;
+  AuthenticationController auth = Get.find();
+  final progress = ProgressHUD.of(Get.context!);
 
-  AuthConfiguration auth = AuthConfiguration();
   // Method for routing to a diffrent screen
   void navigateToNextScreen(int index) {
     logDebug('Track:: $index');
@@ -32,15 +35,14 @@ class ProfileController extends GetxController with UiLoggy {
     }
   }
 
-  @override
-  void onInit() {
-    SchedulerBinding.instance!.addPostFrameCallback((_) {
-      var userData = auth.userInfo();
+  Future<void> handleSignOut() async {
+    processSignOut();
+  }
 
-      user.value.email = userData!.email;
-      user.value.username = userData.displayName;
-    });
-
-    super.onInit();
+  Future<void> processSignOut() async {
+    Get.back();
+    progress?.showWithText('Signing out...');
+    auth.signOut();
+    progress?.dismiss();
   }
 }

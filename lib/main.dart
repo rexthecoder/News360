@@ -2,8 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:loggy/loggy.dart';
+import 'package:news360/src/app/intializer.dart';
 
-import 'src/app.dart';
+import 'src/app/app.dart';
 import 'src/settings/settings_controller.dart';
 import 'src/settings/settings_service.dart';
 
@@ -22,6 +23,7 @@ void main() async {
   // SettingsView.
 
   Loggy.initLoggy();
+  init();
   await Firebase.initializeApp();
 
   runApp(App(settingsController: settingsController));

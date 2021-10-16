@@ -21,7 +21,7 @@ abstract class AppPages {
         transition: Transition.noTransition,
         page: () => const LoginPage(),
         binding: BindingsBuilder(() {
-          Get.put(LoginController());
+          Get.lazyPut<LoginController>(() => LoginController());
         })),
     GetPage(
       name: Routes.forgetPassword,
@@ -37,9 +37,11 @@ abstract class AppPages {
     ),
     GetPage(
       name: Routes.register,
+      transition: Transition.leftToRightWithFade,
       page: () => const RegisterPage(),
     ),
     GetPage(
+      transition: Transition.upToDown,
       name: Routes.favorite,
       page: () => const FavoritePage(),
     ),

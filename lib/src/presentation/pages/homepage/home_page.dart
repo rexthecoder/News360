@@ -13,6 +13,7 @@ import 'package:awesome_flutter_extensions/all.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:get/get.dart';
 import 'package:news360/src/logic/global/categories.dart';
+import 'package:news360/src/logic/global/variables.dart';
 import 'package:news360/src/presentation/pages/global/templates/bottom_navigation/fancy_bottom_bar.dart';
 
 import 'package:news360/src/presentation/pages/global/templates/fade/fade_index_stack.dart';
@@ -21,6 +22,7 @@ import 'package:news360/src/presentation/pages/onboarding/components/card_transf
 import 'package:news360/src/presentation/theme/app_colors.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:optimized_cached_image/optimized_cached_image.dart';
+import 'package:skeletons/skeletons.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:spaces/spaces.dart';
 
@@ -130,35 +132,54 @@ class MainPage extends GetView<HomeController> {
                         init: HomeController(),
                         initState: (_) {},
                         builder: (_) {
-                          return PageTransformer(
-                            pageViewBuilder: (context, visibilityResolver) {
-                              return PageView.builder(
-                                pageSnapping: true,
-                                padEnds: false,
-                                physics: const BouncingScrollPhysics(),
-                                controller: controller.sliderController,
-                                itemCount: controller.headlineList.length,
-                                itemBuilder: (context, index) {
-                                  final pageVisibility = visibilityResolver
-                                      .resolvePageVisibility(index);
-                                  return Padding(
-                                    padding: context
-                                        .spacing()
-                                        .insets
-                                        .horizontal
-                                        .normal
-                                        .copyWith(right: 10),
-                                    child: ParallaxCards(
-                                      discription: controller
-                                          .headlineList[index]['title'],
-                                      pageVisibility: pageVisibility,
-                                      imageUrl: controller.headlineList[index]
-                                          ['image'],
-                                    ),
-                                  );
-                                },
-                              );
-                            },
+                          return Skeleton(
+                            skeleton: Padding(
+                              padding: context
+                                  .spacing()
+                                  .insets
+                                  .horizontal
+                                  .normal
+                                  .copyWith(right: 10),
+                              child: SkeletonAvatar(
+                                style: SkeletonAvatarStyle(
+                                  width: double.infinity,
+                                  minHeight:
+                                      MediaQuery.of(context).size.height / 8,
+                                  maxHeight: MediaQuery.of(context).size.height,
+                                ),
+                              ),
+                            ),
+                            isLoading: true,
+                            child: PageTransformer(
+                              pageViewBuilder: (context, visibilityResolver) {
+                                return PageView.builder(
+                                  pageSnapping: true,
+                                  padEnds: false,
+                                  physics: const BouncingScrollPhysics(),
+                                  controller: controller.sliderController,
+                                  itemCount: controller.headlineList.length,
+                                  itemBuilder: (context, index) {
+                                    final pageVisibility = visibilityResolver
+                                        .resolvePageVisibility(index);
+                                    return Padding(
+                                      padding: context
+                                          .spacing()
+                                          .insets
+                                          .horizontal
+                                          .normal
+                                          .copyWith(right: 10),
+                                      child: ParallaxCards(
+                                        discription: controller
+                                            .headlineList[index]['title'],
+                                        pageVisibility: pageVisibility,
+                                        imageUrl: controller.headlineList[index]
+                                            ['image'],
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                            ),
                           );
                         },
                       ),

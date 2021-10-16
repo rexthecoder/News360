@@ -19,73 +19,76 @@ class FavoritePage extends GetView<FavoriteController> {
   @override
   Widget build(BuildContext context) {
     FavoriteController _ = Get.put(FavoriteController());
-    return AppWrapper(
-      child: ProgressHUD(
-        child: Builder(builder: (context) {
-          return SizedBox(
-            width: double.infinity,
-            child: Padding(
-              padding: context.spacing().insets.horizontal.normal,
-              child: GetBuilder<FavoriteController>(builder: (_) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    const Space.normal(),
-                    AutoSizeText(
-                      'Select your favorite topics',
-                      style: context.h5.copyWith(
-                        color: AppColors.blackPrimary,
-                      ),
-                    ),
-                    const Space.semiSmall(),
-                    AutoSizeText(
-                      'Select some of your favorite topics to let us suggest better news for you.',
-                      style: context.bodyText1.copyWith(
-                        color: AppColors.greyPrimary,
-                      ),
-                    ),
-                    const Space.semiBig(),
-                    SizedBox(
-                      child: GridView.builder(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          controller.selectedInterestFavorite[index] =
-                              controller.selectedInterestFavorite[index] ??
-                                  false;
-                          bool? isSelected =
-                              controller.selectedInterestFavorite[index];
-                          return GestureDetector(
-                            onTap: () =>
-                                _.interestSelection(isSelected!, index),
-                            child: FavoriteAniamtionCard(
-                              label: categories[index],
-                              state: isSelected,
-                            ),
-                          );
-                        },
-                        itemCount: categories.length,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 3 / 1.8,
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: AppWrapper(
+        child: ProgressHUD(
+          child: Builder(builder: (context) {
+            return SizedBox(
+              width: double.infinity,
+              child: Padding(
+                padding: context.spacing().insets.horizontal.normal,
+                child: GetBuilder<FavoriteController>(builder: (_) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const Space.normal(),
+                      AutoSizeText(
+                        'Select your favorite topics',
+                        style: context.h5.copyWith(
+                          color: AppColors.blackPrimary,
                         ),
                       ),
-                    ),
-                    const Space.normal(),
-                    BlueExpandedButton(
-                      label: 'Complete',
-                      onPressed: () => controller.addToDataBase(context),
-                    ),
-                    const Space.normal(),
-                  ],
-                );
-              }),
-            ),
-          );
-        }),
+                      const Space.semiSmall(),
+                      AutoSizeText(
+                        'Select some of your favorite topics to let us suggest better news for you.',
+                        style: context.bodyText1.copyWith(
+                          color: AppColors.greyPrimary,
+                        ),
+                      ),
+                      const Space.semiBig(),
+                      SizedBox(
+                        child: GridView.builder(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            controller.selectedInterestFavorite[index] =
+                                controller.selectedInterestFavorite[index] ??
+                                    false;
+                            bool? isSelected =
+                                controller.selectedInterestFavorite[index];
+                            return GestureDetector(
+                              onTap: () =>
+                                  _.interestSelection(isSelected!, index),
+                              child: FavoriteAniamtionCard(
+                                label: categories[index],
+                                state: isSelected,
+                              ),
+                            );
+                          },
+                          itemCount: categories.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            childAspectRatio: 3 / 1.8,
+                          ),
+                        ),
+                      ),
+                      const Space.normal(),
+                      BlueExpandedButton(
+                        label: 'Complete',
+                        onPressed: () => controller.addToDataBase(context),
+                      ),
+                      const Space.normal(),
+                    ],
+                  );
+                }),
+              ),
+            );
+          }),
+        ),
       ),
     );
   }

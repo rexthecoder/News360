@@ -11,16 +11,16 @@ class DataBaseService {
   CollectionReference category =
       FirebaseFirestore.instance.collection('category');
 
-  void addCategory(Map<String, String> data, {context}) {
+  Future<void> addCategory(Map<String, String> data, {context}) async {
     final progress = ProgressHUD.of(context);
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 5), () {
       progress?.showWithText('Loading...');
     });
 
     try {
-      category.doc(userEmail).set(data);
+      await category.doc(userEmail).set(data);
       progress?.dismiss();
-      Get.toNamed('home');
+      Get.offAndToNamed('home');
     } catch (e) {
       progress?.dismiss();
       showToast('$e', context: context);
