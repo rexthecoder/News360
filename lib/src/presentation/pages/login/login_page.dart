@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:news360/resources/assets/assets.gen.dart';
-import 'package:news360/src/logic/global/variables.dart';
 import 'package:news360/src/presentation/pages/global/templates/blue_expanded_button.dart';
 import 'package:news360/src/presentation/pages/global/templates/export.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
@@ -21,7 +20,7 @@ class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async => isLoading.value,
+      onWillPop: () async => false,
       child: AppWrapper(
         child: ProgressHUD(
           child: Builder(builder: (context) {
@@ -77,6 +76,9 @@ class LoginPage extends GetView<LoginController> {
                               const Space.normal(),
                               Obx(
                                 () => FieldWithFocusConfig(
+                                  obscureText: controller.isPasswordShown.value
+                                      ? false
+                                      : true,
                                   controller: controller,
                                   prefix: Icons.lock_outline,
                                   hintText: 'Password',
@@ -165,12 +167,15 @@ class LoginPage extends GetView<LoginController> {
                       ],
                     ),
                   ),
-                  AnimatedBuilder(
-                    animation: controller.rippleAnimation,
-                    builder: (_, Widget? child) {
-                      return Ripple(radius: controller.rippleAnimation.value);
-                    },
-                  ),
+                  controller.showRippleEffect
+                      ? AnimatedBuilder(
+                          animation: controller.rippleAnimation,
+                          builder: (_, Widget? child) {
+                            return Ripple(
+                                radius: controller.rippleAnimation.value);
+                          },
+                        )
+                      : const SizedBox.shrink(),
                 ],
               ),
             );

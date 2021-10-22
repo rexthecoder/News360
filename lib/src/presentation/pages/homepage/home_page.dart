@@ -33,16 +33,33 @@ import 'sub/bookmark_section.dart';
 import 'sub/categories_section.dart';
 import 'sub/profile_section.dart';
 
-/// Presentation with nav bar attach to it.
+/// Steteless Presentation view with nav bar attach to it.
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const AppWrapper(
-      bottomNavigationBar: _CustomNavigationBar(),
-      child: _CustomTransitionSection(),
+    return const _LoadingPointerAbsorber(
+      child: AppWrapper(
+        bottomNavigationBar: _CustomNavigationBar(),
+        child: _CustomTransitionSection(),
+      ),
     );
+  }
+}
+
+class _LoadingPointerAbsorber extends StatelessWidget {
+  const _LoadingPointerAbsorber({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
+  final Widget child;
+  @override
+  Widget build(BuildContext context) {
+    return Obx(() => AbsorbPointer(
+          absorbing: isPointerAbsorbing.value,
+          child: child,
+        ));
   }
 }
 
@@ -62,21 +79,6 @@ class _CustomTransitionSection extends GetView<HomeController> {
             ProfilePage()
           ],
         ));
-    // return Obx(() => BottomBarPageTransition(
-    //       currentIndex: controller.selectedPosition.value,
-    //       totalLength: controller.totalPage,
-    //       transitionType: controller.transitionType,
-    //       transitionDuration: const Duration(milliseconds: 495),
-    //       builder: (_, index) => IndexedStack(
-    //         index: index,
-    //         children: const [
-    //           MainPage(),
-    //           CategoriesPage(),
-    //           BookmarkPage(),
-    //           ProfilePage()
-    //         ],
-    //       ),
-    //     ));
   }
 }
 
@@ -103,6 +105,7 @@ class MainPage extends GetView<HomeController> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     const Space.normal(),
+
                     Padding(
                       padding: context.spacing().insets.horizontal.normal,
                       child: AutoSizeText(
@@ -112,7 +115,9 @@ class MainPage extends GetView<HomeController> {
                         ),
                       ),
                     ),
+
                     const Space.semiSmall(),
+
                     Padding(
                       padding: context.spacing().insets.horizontal.normal,
                       child: AutoSizeText(
@@ -122,9 +127,12 @@ class MainPage extends GetView<HomeController> {
                         ),
                       ),
                     ),
+
                     const Space.extraBig(),
                     //  Expanded(child: Container(child: const CustomSearchBar())),
+
                     const ChipListView(),
+
                     const Space.normal(),
                     SizedBox.fromSize(
                       size: const Size.fromHeight(300.0),
@@ -133,7 +141,7 @@ class MainPage extends GetView<HomeController> {
                         initState: (_) {},
                         builder: (_) {
                           return Skeleton(
-                            isLoading: isLoading.value,
+                            isLoading: controller.headlineList.isEmpty,
                             skeleton: Padding(
                               padding: context
                                   .spacing()
@@ -243,7 +251,7 @@ class MainPage extends GetView<HomeController> {
                       initState: (_) {},
                       builder: (_) {
                         return Skeleton(
-                          isLoading: isLoading.value,
+                          isLoading: controller.newsList.isEmpty,
                           skeleton: SizedBox(
                               height: 300,
                               child: SkeletonListView(
@@ -268,8 +276,9 @@ class MainPage extends GetView<HomeController> {
                   ],
                 ),
                 SizedBox(
-                    height: controller.screenHieght,
-                    child: const CustomSearchBar()),
+                  height: controller.screenHieght,
+                  child: const CustomSearchBar(),
+                ),
               ],
             ),
           ),

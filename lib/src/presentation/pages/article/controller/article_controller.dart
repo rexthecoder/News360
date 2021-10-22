@@ -6,7 +6,7 @@ import 'package:news360/src/logic/scrapper/apps_scrapper.dart';
 class ArticleController extends GetxController {
   final scrollcontroller = ScrollController();
   final _scraping = Scrapper();
-  late final int index;
+  late final dynamic index;
   RxMap contents = {}.obs;
   final scrollOffset = 0.0.obs;
 

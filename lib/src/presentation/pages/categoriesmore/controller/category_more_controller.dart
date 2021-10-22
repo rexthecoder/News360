@@ -26,7 +26,9 @@ class CategoryMoreController extends GetxController with UiLoggy {
             var data = event as FileInfo;
             data.file.readAsString().then((value) {
               headline = _scrapper.headline(value);
-
+              if (headline.length > 20) {
+                headline = headline.take(15).toList();
+              }
               update();
             });
           },

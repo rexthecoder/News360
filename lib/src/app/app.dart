@@ -43,7 +43,7 @@ class App extends GetWidget<AuthenticationController> {
                   : Routes.onBoarding,
           theme: _lightTheme,
           defaultTransition: Transition.fade,
-          // showPerformanceOverlay: true,
+          showPerformanceOverlay: true,
           // home: TestingScreen(),
           builder: (context, child) => Spacing(
             dataBuilder: (context) {

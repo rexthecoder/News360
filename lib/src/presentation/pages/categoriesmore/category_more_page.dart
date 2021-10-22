@@ -36,34 +36,32 @@ class CategoryMorePage extends GetView<CategoryMoreController> {
               initState: (_) {},
               builder: (_) {
                 return Skeleton(
-                  isLoading: controller.headline.isEmpty,
-                  skeleton: Padding(
-                    padding: context
-                        .spacing()
-                        .insets
-                        .horizontal
-                        .normal
-                        .copyWith(right: 10),
-                    child: SizedBox(
-                        height: 300,
-                        child: SkeletonListView(
-                          itemCount: 4,
-                        )),
-                  ),
-                  child: SizedBox(
-                    child: ListView.builder(
-                      itemCount: controller.headline.length,
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) => CategoryCards(
-                        index: index,
-                        url: controller.headline[index]['link'],
-                        image: controller.headline[index]['image'],
-                        title: controller.headline[index]['title'],
-                      ),
+                    isLoading: controller.headline.isEmpty,
+                    skeleton: Padding(
+                      padding: context
+                          .spacing()
+                          .insets
+                          .horizontal
+                          .normal
+                          .copyWith(right: 10),
+                      child: SizedBox(
+                          height: 300,
+                          child: SkeletonListView(
+                            itemCount: 4,
+                          )),
                     ),
-                  ),
-                );
+                    child: Column(
+                      children: controller.headline
+                          .map(
+                            (e) => CategoryCards(
+                              index: e['title'],
+                              url: e['link'],
+                              image: e['image'],
+                              title: e['title'],
+                            ),
+                          )
+                          .toList(),
+                    ));
               },
             )
           ],
@@ -82,7 +80,7 @@ class CategoryCards extends GetView<CategoryMoreController> {
     required this.title,
   }) : super(key: key);
 
-  final int index;
+  final dynamic index;
   final String? image;
   final String title;
   final String url;

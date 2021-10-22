@@ -24,6 +24,7 @@ class FieldWithFocusConfig extends StatelessWidget {
     this.validator,
     this.onSaved,
     this.textInputAction,
+    this.obscureText,
   }) : super(key: key);
 
   final dynamic controller;
@@ -37,10 +38,12 @@ class FieldWithFocusConfig extends StatelessWidget {
   final TextEditingController? fieldController;
   final void Function(String?)? onSaved;
   final TextInputAction? textInputAction;
+  final bool? obscureText;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: obscureText ?? false,
       focusNode: focusNode,
       keyboardAppearance: Brightness.dark,
       validator: validator,

@@ -14,7 +14,7 @@ class LoginController extends GetxController
   //Firebase configuration
   final userModel = UserResponseModel();
   final AuthenticationController _authenticationController = Get.find();
-
+  final showRippleEffect = Get.arguments ?? true;
   //local private varriable
   final _isPasswordShown = true.obs;
   // Animation configuration
@@ -65,6 +65,13 @@ class LoginController extends GetxController
 
   @override
   void onInit() {
+    _emailFocusNode.addListener(_onFocusChange);
+    _passwordFocusNode.addListener(_onPasswordFocusChange);
+    if (showRippleEffect) rippleConfiguration();
+    super.onInit();
+  }
+
+  void rippleConfiguration() {
     rippleAnimationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 700),
@@ -78,9 +85,6 @@ class LoginController extends GetxController
       curve: Curves.easeIn,
     ));
     rippleAnimationController.forward();
-    _emailFocusNode.addListener(_onFocusChange);
-    _passwordFocusNode.addListener(_onPasswordFocusChange);
-    super.onInit();
   }
 
   Future<void> loginUser(
@@ -92,7 +96,7 @@ class LoginController extends GetxController
       progress?.showWithText('Loading...');
       await _authenticationController.signIn(
         email: userModel.email!,
-        password: userModel.password!,
+        password: userModel.password!.trim(),
       );
       loginConfiguration(context, progress);
     }
@@ -108,7 +112,7 @@ class LoginController extends GetxController
     }
     if (_authenticationController.state is Authenticated) {
       progress?.dismiss();
-      Get.toNamed('/home');
+      Get.offNamed('/home');
     }
   }
 }
