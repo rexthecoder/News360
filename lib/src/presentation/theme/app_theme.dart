@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:news360/resources/assets/fonts.gen.dart';
+import 'package:news360/src/resources/assets/fonts.gen.dart';
 import 'package:news360/src/presentation/theme/text_styles.dart';
 
 import 'app_colors.dart';

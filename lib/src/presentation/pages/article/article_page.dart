@@ -3,7 +3,7 @@ import 'package:awesome_flutter_extensions/all.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news360/resources/assets/assets.gen.dart';
+
 import 'package:news360/src/logic/global/variables.dart';
 import 'package:news360/src/presentation/pages/global/templates/fade/fade_animation.dart';
 import 'package:news360/src/presentation/pages/global/templates/fade/fade_scroll_view.dart';
@@ -11,6 +11,7 @@ import 'package:news360/src/presentation/pages/global/templates/widget_wrapper.d
 
 import 'package:news360/src/presentation/theme/app_colors.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
+import 'package:news360/src/resources/assets/assets.gen.dart';
 import 'package:skeletons/skeletons.dart';
 import 'package:spaces/spaces.dart';
 import 'controller/article_controller.dart';

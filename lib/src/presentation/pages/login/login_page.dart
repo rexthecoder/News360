@@ -6,10 +6,11 @@ import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:get/get.dart';
 
 import 'package:awesome_flutter_extensions/all.dart';
-import 'package:news360/resources/assets/assets.gen.dart';
+
 import 'package:news360/src/presentation/pages/global/templates/blue_expanded_button.dart';
 import 'package:news360/src/presentation/pages/global/templates/export.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
+import 'package:news360/src/resources/assets/assets.gen.dart';
 import 'package:spaces/spaces.dart';
 import 'components/ripple.dart';
 import 'controller/login_controller.dart';

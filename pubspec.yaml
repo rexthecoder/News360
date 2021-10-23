@@ -23,8 +23,6 @@ dependencies:
     sdk: flutter
   flutter_cache_manager: ^3.1.2
   flutter_focus_watcher: ^2.0.0
-  flutter_localizations:
-    sdk: flutter
   flutter_progress_hud: ^2.0.0
   flutter_styled_toast: ^2.0.0
   flutter_svg: ^0.22.0
