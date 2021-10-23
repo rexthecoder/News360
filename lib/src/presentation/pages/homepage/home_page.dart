@@ -108,11 +108,33 @@ class MainPage extends GetView<HomeController> {
 
                     Padding(
                       padding: context.spacing().insets.horizontal.normal,
-                      child: AutoSizeText(
-                        'Browse',
-                        style: context.h5.copyWith(
-                          color: AppColors.blackPrimary,
-                        ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          AutoSizeText(
+                            'Browse',
+                            style: context.h5.copyWith(
+                              color: isDarkMode
+                                  ? AppColors.white
+                                  : AppColors.blackPrimary,
+                            ),
+                          ),
+                          isDarkMode
+                              ? GestureDetector(
+                                  onTap: () => appdata.write('darkmode', false),
+                                  child: Text(
+                                    '🌙',
+                                    style: context.h6,
+                                  ),
+                                )
+                              : GestureDetector(
+                                  onTap: () => appdata.write('darkmode', true),
+                                  child: Text(
+                                    '🌑',
+                                    style: context.h6,
+                                  ),
+                                )
+                        ],
                       ),
                     ),
 
@@ -229,7 +251,9 @@ class MainPage extends GetView<HomeController> {
                           AutoSizeText(
                             'Recommended for you',
                             style: context.bodyText1.copyWith(
-                              color: AppColors.blackPrimary,
+                              color: isDarkMode
+                                  ? AppColors.white
+                                  : AppColors.blackPrimary,
                             ),
                           ),
                           const Space.semiSmall(),
@@ -345,7 +369,8 @@ class ArticleCards extends GetView<HomeController> {
                   child: AutoSizeText(
                     title,
                     style: context.bodyText1.copyWith(
-                      color: AppColors.blackPrimary,
+                      color:
+                          isDarkMode ? AppColors.white : AppColors.blackPrimary,
                     ),
                   ),
                 ),
@@ -518,7 +543,7 @@ class _CustomNavigationBar extends GetView<HomeController> {
       title: AutoSizeText(
         label!,
         style: context.bodyText1.copyWith(
-          color: AppColors.blackPrimary,
+          color: isDarkMode ? AppColors.white : AppColors.blackPrimary,
         ),
       ),
       icon: Icon(

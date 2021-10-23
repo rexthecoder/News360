@@ -44,7 +44,7 @@
       "name": "Flutter Profile",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "profile"
+      "flutterMode": "debug"
     }
   ]
 }

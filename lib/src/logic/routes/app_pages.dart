@@ -46,7 +46,7 @@ abstract class AppPages {
       page: () => const FavoritePage(),
     ),
     GetPage(
-        transition: Transition.upToDown,
+        transition: Transition.native,
         name: Routes.home,
         page: () => const HomePage(),
         binding: BindingsBuilder(() {

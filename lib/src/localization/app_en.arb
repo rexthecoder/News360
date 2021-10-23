@@ -1,11 +1,32 @@
 {
   "appTitle": "news360",
   "@appTitle": {
-    "description": "The title of the application"
+    "description": "News aPplication for reading ghana best news"
   },
-  "first": "first",
-  "@first": {
-    "description": "onboarding text"
+ 
+  "notification": "Notification",
+  "@notification": {
+    "description":"nofication"
+  },
+  "language": "Language",
+  "@lanaguage": {
+    "description":"Language"
+  },
+  "changepassword": "Change Password",
+  "@changepassword": {
+    "description":"Change Password"
+  },
+  "privacy": "Privacy",
+  "@privacy": {
+    "description":"Privacy"
+  },
+  "terms": "Terms & Conditions",
+  "@terms": {
+    "description":"Terms & Conditions"
+  },
+  "signout": "Sign Out",
+  "@signout": {
+    "description":"Sign Out"
   }
 }
 

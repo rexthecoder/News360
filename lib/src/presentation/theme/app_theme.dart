@@ -7,16 +7,19 @@ import 'package:news360/src/presentation/theme/text_styles.dart';
 import 'app_colors.dart';
 
 //ThemeMode
-var lightTheme = ThemeData.light().copyWith(primaryColor: AppColors.white);
-var mySystemTheme = SystemUiOverlayStyle.light.copyWith(
+var lightTheme = AppTheme.lightTheme();
+var darkTheme = AppTheme.darkTheme();
+
+var systemTheme = SystemUiOverlayStyle.light.copyWith(
   systemNavigationBarColor: Colors.white,
   statusBarColor: Colors.white,
   statusBarIconBrightness: Brightness.dark,
 );
-var mySystemThemeHeaderBlue = SystemUiOverlayStyle.light.copyWith(
-  systemNavigationBarColor: Colors.white,
-  statusBarColor: Colors.transparent,
-  statusBarIconBrightness: Brightness.dark,
+
+var darkSystemTheme = SystemUiOverlayStyle.dark.copyWith(
+  systemNavigationBarColor: AppColors.blackBackground,
+  statusBarColor: AppColors.blackBackground,
+  statusBarIconBrightness: Brightness.light,
 );
 
 class AppTheme {
@@ -35,6 +38,27 @@ class AppTheme {
         secondaryVariant: AppColors.greyPrimary,
         background: AppColors.white,
         primary: AppColors.blackPrimary,
+      ),
+    );
+  }
+
+  static ThemeData darkTheme() {
+    final ThemeData base = ThemeData.dark();
+
+    return base.copyWith(
+      primaryColor: AppColors.blackBackground,
+      textTheme: _buildBmiTextTheme(base.textTheme),
+      primaryColorLight: AppColors.blackBackground,
+      primaryColorDark: AppColors.blackBackground,
+      scaffoldBackgroundColor: AppColors.blackBackground,
+      bottomAppBarColor: AppColors.blackBackground,
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: AppColors.blackBackground,
+      ),
+      colorScheme: base.colorScheme.copyWith(
+        secondaryVariant: AppColors.greyPrimary,
+        background: AppColors.blackBackground,
+        primary: AppColors.white,
       ),
     );
   }

@@ -1,0 +1,30 @@
+{
+  "appTitle": "news360",
+  "@appTitle": {
+    "description": "Application de nouvelles pour lire les meilleures nouvelles du ghana"
+  },
+  "notification": "Notification",
+  "@notification": {
+    "description":"Nofication"
+  },
+  "language": "Langue",
+  "@lanaguage": {
+    "description":"Langue"
+  },
+  "changepassword": "Changer le mot de passe",
+  "@changepassword": {
+    "description":"Changer le mot de passe"
+  },
+  "privacy": "Intimité",
+  "@privacy": {
+    "description":"Intimité"
+  },
+  "terms": "Termes et Conditions",
+  "@terms": {
+    "description":"Termes et Conditions"
+  },
+  "signout": "Se déconnecter",
+  "@signout": {
+    "description":"Se déconnecter"
+  }
+}

@@ -3,6 +3,7 @@ import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news360/src/logic/global/categories.dart';
+import 'package:news360/src/logic/global/variables.dart';
 import 'package:news360/src/presentation/pages/global/templates/export.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:spaces/spaces.dart';
@@ -26,7 +27,7 @@ class CategoriesPage extends GetView {
               AutoSizeText(
                 'Categories',
                 style: context.h5.copyWith(
-                  color: AppColors.blackPrimary,
+                  color: isDarkMode ? AppColors.white : AppColors.blackPrimary,
                 ),
               ),
               const Space.semiSmall(),

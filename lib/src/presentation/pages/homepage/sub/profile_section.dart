@@ -33,7 +33,8 @@ class ProfilePage extends GetView<ProfileController> {
                 AutoSizeText(
                   'Profile',
                   style: context.h5.copyWith(
-                    color: AppColors.blackPrimary,
+                    color:
+                        isDarkMode ? AppColors.white : AppColors.blackPrimary,
                   ),
                 ),
                 const Space.normal(),
@@ -55,7 +56,9 @@ class ProfilePage extends GetView<ProfileController> {
                           '${user?.value.username}',
                           style: context.h6.copyWith(
                             fontWeight: FontWeight.bold,
-                            color: AppColors.blackPrimary,
+                            color: isDarkMode
+                                ? AppColors.white
+                                : AppColors.blackPrimary,
                           ),
                         ),
                         AutoSizeText(
@@ -71,7 +74,7 @@ class ProfilePage extends GetView<ProfileController> {
                 ),
                 const Space.normal(),
                 ProfileCard(
-                  label: 'Notifications',
+                  label: 'notification'.tr,
                   trailing: Switcher(
                     value: false,
                     size: SwitcherSize.medium,
@@ -99,9 +102,9 @@ class ProfilePage extends GetView<ProfileController> {
                 const Space.small(),
                 InkWell(
                   onTap: () => controller.handleSignOut(context),
-                  child: const ProfileCard(
-                    label: 'Sign Out',
-                    trailing: Icon(
+                  child: ProfileCard(
+                    label: 'signOut'.tr,
+                    trailing: const Icon(
                       EvaIcons.logOut,
                     ),
                   ),
@@ -140,7 +143,7 @@ class ProfileCard extends StatelessWidget {
         ),
         child: ListTile(
           leading: AutoSizeText(
-            label,
+            label.tr,
             style: context.h6.copyWith(
               color: AppColors.blackPrimary,
             ),

@@ -1,7 +1,6 @@
-
-const List<String> profileList = [
-  'Language',
-  'Change Password',
-  'Privacy',
-  'Terms & Conditions'
+List<String> profileList = [
+  'lanaguage',
+  'changePassword',
+  'privacy',
+  'terms',
 ];

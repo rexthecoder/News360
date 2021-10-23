@@ -4,6 +4,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news360/resources/assets/assets.gen.dart';
+import 'package:news360/src/logic/global/variables.dart';
 import 'package:news360/src/presentation/pages/global/templates/fade/fade_animation.dart';
 import 'package:news360/src/presentation/pages/global/templates/fade/fade_scroll_view.dart';
 import 'package:news360/src/presentation/pages/global/templates/widget_wrapper.dart';
@@ -37,7 +38,9 @@ class ArticlePage extends GetView<ArticleController> {
                       alignment: Alignment.center,
                       child: Image.asset(
                         Assets.images.book.path,
-                        color: AppColors.purplePrimary,
+                        color: isDarkMode
+                            ? AppColors.white
+                            : AppColors.purplePrimary,
                       ),
                     ),
                   ),

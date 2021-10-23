@@ -22,5 +22,5 @@ class AppColors {
   static Color greyPrimary = base('7C82A1');
   static Color greyLight = base('ACAFC3');
   static Color greyLighter = base('F3F4F6');
-
+  static Color blackBackground = base('001833');
 }

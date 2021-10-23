@@ -21,7 +21,6 @@ dependencies:
   firebase_core: ^1.7.0
   flutter:
     sdk: flutter
-  skeletons: ^0.0.3
   flutter_cache_manager: ^3.1.2
   flutter_focus_watcher: ^2.0.0
   flutter_localizations:
@@ -30,6 +29,7 @@ dependencies:
   flutter_styled_toast: ^2.0.0
   flutter_svg: ^0.22.0
   get: ^4.3.8
+  get_storage: ^2.0.3
   http: ^0.13.4
   json_serializable: ^5.0.2
   loggy: ^2.0.1
@@ -37,6 +37,7 @@ dependencies:
   optimized_cached_image: ^3.0.0
   pin_code_fields: ^7.3.0
   simple_animations: ^4.0.0
+  skeletons: ^0.0.3
   smooth_page_indicator: ^1.0.0+2
   spaces: ^0.5.0
   switcher: ^1.0.0

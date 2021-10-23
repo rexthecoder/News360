@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_focus_watcher/flutter_focus_watcher.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
 
 class AppWrapper extends StatelessWidget {
   const AppWrapper({
@@ -15,16 +13,14 @@ class AppWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: mySystemTheme,
-      child: FocusWatcher(
-        child: Scaffold(
-          bottomNavigationBar: bottomNavigationBar,
-          resizeToAvoidBottomInset: false,
-          backgroundColor: AppColors.white,
-          body: SafeArea(
-            child: child,
-          ),
+    return FocusWatcher(
+      child: Scaffold(
+        bottomNavigationBar: bottomNavigationBar,
+        resizeToAvoidBottomInset: false,
+        // backgroundColor:
+        //     isDarkMode ? AppColors.blackPrimary : AppColors.white,
+        body: SafeArea(
+          child: child,
         ),
       ),
     );

@@ -37,6 +37,7 @@ class LanguagePage extends GetView<LanguageController> {
             ],
           ),
           const Space.normal(),
+
           GetBuilder<LanguageController>(
             init: LanguageController(),
             builder: (_) {
@@ -45,16 +46,13 @@ class LanguagePage extends GetView<LanguageController> {
                   padding: EdgeInsets.zero,
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    controller.selectedInterestFavorite[index] =
-                        controller.selectedInterestFavorite[index] ?? false;
-                    bool? isSelected =
-                        controller.selectedInterestFavorite[index];
+                    controller.trackSelected(index: index);
                     return GestureDetector(
                       onTap: () =>
-                          controller.interestSelection(isSelected!, index),
+                          controller.updateLanguageSelected(index: index),
                       child: LanguageAniamtionCard(
                         label: lanaguages[index],
-                        state: isSelected,
+                        state: controller.isSelected,
                       ),
                     );
                   },
