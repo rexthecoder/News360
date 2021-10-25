@@ -4,8 +4,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news360/src/logic/global/policies.dart';
-import 'package:news360/src/presentation/pages/global/templates/fade/fade_scroll_view.dart';
-import 'package:news360/src/presentation/pages/global/templates/widget_wrapper.dart';
+import 'package:news360/src/presentation/templates/export.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:spaces/spaces.dart';
 
@@ -17,7 +16,24 @@ class TermsAndConditionPage extends GetView {
     final controller = ScrollController();
 
     return AppWrapper(
-        child: FadingEdgeScrollView.fromSingleChildScrollView(
+      child: _TermsBody(
+        controller: controller,
+      ),
+    );
+  }
+}
+
+class _TermsBody extends StatelessWidget {
+  const _TermsBody({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+
+  final ScrollController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return FadingEdgeScrollView.fromSingleChildScrollView(
       shouldDisposeScrollController: true,
       gradientFractionOnStart: 0.6,
       gradientFractionOnEnd: 0.6,
@@ -57,6 +73,6 @@ class TermsAndConditionPage extends GetView {
           ],
         ),
       ),
-    ));
+    );
   }
 }

@@ -1,3 +1,11 @@
+/*
+ *  Copyright (c) 2021, Rexford Asamoah Agyapong 
+ * Use of this source code is governed by an MIT-style 
+ * license that can be found in the LICENSE file or at 
+ * https://opensource.org/licenses/MIT.
+ *
+ */
+
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
 import 'package:news360/src/localization/localization_services.dart';
@@ -7,6 +15,7 @@ class LanguageController extends GetxController with UiLoggy {
   Map<int, bool> selectedInterestFavorite = <int, bool>{0: true};
   bool? isSelected = false;
 
+  // Handle slecetion
   void interestSelection(bool isSelected, int index) {
     // Avoid users from deactvating all lanaguage pref
     if (selectedInterestFavorite[index] == true) {
@@ -19,6 +28,7 @@ class LanguageController extends GetxController with UiLoggy {
     update();
   }
 
+  // Track the selected card
   void trackSelected({
     required int index,
   }) {
@@ -26,6 +36,7 @@ class LanguageController extends GetxController with UiLoggy {
     isSelected = selectedInterestFavorite[index];
   }
 
+//Update the card
   void updateLanguageSelected({
     required int index,
   }) {

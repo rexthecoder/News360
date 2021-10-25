@@ -31,11 +31,13 @@ class ProfileController extends GetxController with UiLoggy {
     }
   }
 
+  //Handle sign out
   Future<void> handleSignOut(context) async {
     isPointerAbsorbing.value = true;
     processSignOut(context);
   }
 
+  //Process sign out
   Future<void> processSignOut(context) async {
     final progress = ProgressHUD.of(context);
     progress?.showWithText('Signing out...');

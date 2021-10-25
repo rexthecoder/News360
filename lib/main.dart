@@ -10,10 +10,6 @@ import 'src/app/app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Run the app and pass in the SettingsController. The app listens to the
-  // SettingsController for changes, then passes it further down to the
-  // SettingsView.
-
   Loggy.initLoggy();
   init();
   await Firebase.initializeApp();

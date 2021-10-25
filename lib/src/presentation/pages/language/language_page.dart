@@ -1,3 +1,11 @@
+/*
+ *  Copyright (c) 2021, Rexford Asamoah Agyapong 
+ * Use of this source code is governed by an MIT-style 
+ * license that can be found in the LICENSE file or at 
+ * https://opensource.org/licenses/MIT.
+ *
+ */
+
 import 'package:animated_clipper/animated_clipper.dart';
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
@@ -5,8 +13,9 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news360/src/logic/global/lanaguages_list.dart';
-import 'package:news360/src/presentation/pages/global/templates/widget_wrapper.dart';
+
 import 'package:news360/src/presentation/pages/language/controller/lanaguage_controller.dart';
+import 'package:news360/src/presentation/templates/export.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:spaces/spaces.dart';
 
@@ -16,60 +25,83 @@ class LanguagePage extends GetView<LanguageController> {
   @override
   Widget build(BuildContext context) {
     return AppWrapper(
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                onPressed: () => Get.back(),
-                icon: const Icon(EvaIcons.arrowBack),
-              ),
-              AutoSizeText(
-                'Language',
-                style: context.h5.copyWith(
-                  color: AppColors.blackPrimary,
-                ),
-              ),
-              const SizedBox(
-                width: 25,
-              ),
-            ],
-          ),
-          const Space.normal(),
+      child: _LanguagePageBody(
+        controller: controller,
+      ),
+    );
+  }
+}
 
-          GetBuilder<LanguageController>(
-            init: LanguageController(),
-            builder: (_) {
-              return SizedBox(
-                child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    controller.trackSelected(index: index);
-                    return GestureDetector(
-                      onTap: () =>
-                          controller.updateLanguageSelected(index: index),
-                      child: LanguageAniamtionCard(
-                        label: lanaguages[index],
-                        state: controller.isSelected,
-                      ),
-                    );
-                  },
-                  itemCount: lanaguages.length,
+class _LanguagePageBody extends StatelessWidget {
+  const _LanguagePageBody({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+
+  final LanguageController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              onPressed: () => Get.back(),
+              icon: const Icon(EvaIcons.arrowBack),
+            ),
+            AutoSizeText(
+              'Language',
+              style: context.h5.copyWith(
+                color: AppColors.blackPrimary,
+              ),
+            ),
+            const SizedBox(
+              width: 25,
+            ),
+          ],
+        ),
+        const Space.normal(),
+        _LanguageBuilderCard(
+          controller: controller,
+        )
+      ],
+    );
+  }
+}
+
+class _LanguageBuilderCard extends StatelessWidget {
+  const _LanguageBuilderCard({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+
+  final LanguageController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<LanguageController>(
+      init: LanguageController(),
+      builder: (_) {
+        return SizedBox(
+          child: ListView.builder(
+            padding: EdgeInsets.zero,
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              controller.trackSelected(index: index);
+              return GestureDetector(
+                onTap: () => controller.updateLanguageSelected(index: index),
+                child: LanguageAniamtionCard(
+                  label: lanaguages[index],
+                  state: controller.isSelected,
                 ),
               );
             },
-          )
-
-          // Padding(
-          //   padding: context.spacing().insets.horizontal.semiSmall,
-          //   child: const LanguageCard(
-          //     label: 'English',
-          //   ),
-          // )
-        ],
-      ),
+            itemCount: lanaguages.length,
+          ),
+        );
+      },
     );
   }
 }

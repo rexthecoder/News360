@@ -4,7 +4,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news360/src/logic/global/variables.dart';
-import 'package:news360/src/presentation/pages/global/templates/widget_wrapper.dart';
+import 'package:news360/src/presentation/templates/export.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:spaces/spaces.dart';
 

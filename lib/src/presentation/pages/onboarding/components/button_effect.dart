@@ -59,33 +59,34 @@ class _ButtonEffectState extends State<ButtonEffect>
   @override
   Widget build(BuildContext context) {
     return Align(
-        alignment: Alignment.bottomCenter,
-        child: AnimatedBuilder(
-          animation: rippleAnimation,
-          builder: (context, child) => SizedBox(
-            width: rippleAnimation.value,
-            height: rippleAnimation.value,
-            child: Container(
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle, color: AppColors.purpleLight),
-              child: InkWell(
-                onTap: () {
-                  scaleController.forward();
-                },
-                child: AnimatedBuilder(
-                    animation: scaleAnimation,
-                    builder: (context, child) => Transform.scale(
-                          scale: scaleAnimation.value,
-                          child: Container(
-                            margin: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: AppColors.purplePrimary),
-                          ),
-                        )),
+      alignment: Alignment.bottomCenter,
+      child: AnimatedBuilder(
+        animation: rippleAnimation,
+        builder: (context, child) => SizedBox(
+          width: rippleAnimation.value,
+          height: rippleAnimation.value,
+          child: Container(
+            decoration: BoxDecoration(
+                shape: BoxShape.circle, color: AppColors.purpleLight),
+            child: InkWell(
+              onTap: () {
+                scaleController.forward();
+              },
+              child: AnimatedBuilder(
+                animation: scaleAnimation,
+                builder: (context, child) => Transform.scale(
+                  scale: scaleAnimation.value,
+                  child: Container(
+                    margin: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: AppColors.purplePrimary),
+                  ),
+                ),
               ),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

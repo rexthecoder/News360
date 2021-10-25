@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'carousel.dart';
@@ -9,12 +8,10 @@ class ParallaxCards extends StatelessWidget {
     Key? key,
     required this.item,
     required this.pageVisibility,
-  }):super(key: key);
+  }) : super(key: key);
 
   final ParallaxCardItem item;
   final PageVisibility pageVisibility;
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +43,14 @@ class ParallaxCards extends StatelessWidget {
           child: SizedBox(
             height: 600,
             width: double.infinity,
-            child: Stack(fit: StackFit.expand, children: [
-              image,
-              imageOverlayGradient,
-              // _buildTextContainer(context),
-            ]),
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                image,
+                imageOverlayGradient,
+                // _buildTextContainer(context),
+              ],
+            ),
           ),
         ),
       ),

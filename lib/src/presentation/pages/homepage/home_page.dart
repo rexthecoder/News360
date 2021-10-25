@@ -14,20 +14,14 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:get/get.dart';
 import 'package:news360/src/logic/global/categories.dart';
 import 'package:news360/src/logic/global/variables.dart';
-import 'package:news360/src/presentation/pages/global/templates/bottom_navigation/fancy_bottom_bar.dart';
+import 'package:news360/src/presentation/pages/homepage/sub/main_section.dart';
 
-import 'package:news360/src/presentation/pages/global/templates/fade/fade_index_stack.dart';
-import 'package:news360/src/presentation/pages/global/templates/widget_wrapper.dart';
-import 'package:news360/src/presentation/pages/onboarding/components/card_transformer.dart';
+import 'package:news360/src/presentation/templates/export.dart';
 import 'package:news360/src/presentation/theme/app_colors.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:optimized_cached_image/optimized_cached_image.dart';
-import 'package:skeletons/skeletons.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:spaces/spaces.dart';
 
-import 'components/home_parallax_card.dart';
-import 'components/search_bar.dart';
 import 'controller/home_controller.dart';
 import 'sub/bookmark_section.dart';
 import 'sub/categories_section.dart';
@@ -56,10 +50,12 @@ class _LoadingPointerAbsorber extends StatelessWidget {
   final Widget child;
   @override
   Widget build(BuildContext context) {
-    return Obx(() => AbsorbPointer(
-          absorbing: isPointerAbsorbing.value,
-          child: child,
-        ));
+    return Obx(
+      () => AbsorbPointer(
+        absorbing: isPointerAbsorbing.value,
+        child: child,
+      ),
+    );
   }
 }
 
@@ -70,242 +66,14 @@ class _CustomTransitionSection extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => FadeIndexedStack(
-          index: controller.selectedPosition.value,
-          children: const [
-            MainPage(),
-            CategoriesPage(),
-            BookmarkPage(),
-            ProfilePage()
-          ],
-        ));
-  }
-}
-
-class MainPage extends GetView<HomeController> {
-  const MainPage({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          SizedBox(
-            // width: double.infinity,
-            child: Stack(
-              fit: StackFit.loose,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    const Space.normal(),
-
-                    Padding(
-                      padding: context.spacing().insets.horizontal.normal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          AutoSizeText(
-                            'Browse',
-                            style: context.h5.copyWith(
-                              color: isDarkMode
-                                  ? AppColors.white
-                                  : AppColors.blackPrimary,
-                            ),
-                          ),
-                          isDarkMode
-                              ? GestureDetector(
-                                  onTap: () => appdata.write('darkmode', false),
-                                  child: Text(
-                                    '🌙',
-                                    style: context.h6,
-                                  ),
-                                )
-                              : GestureDetector(
-                                  onTap: () => appdata.write('darkmode', true),
-                                  child: Text(
-                                    '🌑',
-                                    style: context.h6,
-                                  ),
-                                )
-                        ],
-                      ),
-                    ),
-
-                    const Space.semiSmall(),
-
-                    Padding(
-                      padding: context.spacing().insets.horizontal.normal,
-                      child: AutoSizeText(
-                        'Discover things of this world',
-                        style: context.bodyText1.copyWith(
-                          color: AppColors.greyPrimary,
-                        ),
-                      ),
-                    ),
-
-                    const Space.extraBig(),
-                    //  Expanded(child: Container(child: const CustomSearchBar())),
-
-                    const ChipListView(),
-
-                    const Space.normal(),
-                    SizedBox.fromSize(
-                      size: const Size.fromHeight(300.0),
-                      child: GetBuilder<HomeController>(
-                        init: HomeController(),
-                        initState: (_) {},
-                        builder: (_) {
-                          return Skeleton(
-                            isLoading: controller.headlineList.isEmpty,
-                            skeleton: Padding(
-                              padding: context
-                                  .spacing()
-                                  .insets
-                                  .horizontal
-                                  .normal
-                                  .copyWith(right: 10),
-                              child: SkeletonAvatar(
-                                style: SkeletonAvatarStyle(
-                                  width: double.infinity,
-                                  minHeight:
-                                      MediaQuery.of(context).size.height / 8,
-                                  maxHeight: MediaQuery.of(context).size.height,
-                                ),
-                              ),
-                            ),
-                            child: PageTransformer(
-                              pageViewBuilder: (context, visibilityResolver) {
-                                return PageView.builder(
-                                  pageSnapping: true,
-                                  padEnds: false,
-                                  physics: const BouncingScrollPhysics(),
-                                  controller: controller.sliderController,
-                                  itemCount: controller.headlineList.length,
-                                  itemBuilder: (context, index) {
-                                    final pageVisibility = visibilityResolver
-                                        .resolvePageVisibility(index);
-                                    return GestureDetector(
-                                      onTap: () => Get.toNamed(
-                                        'article',
-                                        arguments: {
-                                          'index': index,
-                                          'url': controller.headlineList[index]
-                                              ['link']
-                                        },
-                                      ),
-                                      child: Padding(
-                                        padding: context
-                                            .spacing()
-                                            .insets
-                                            .horizontal
-                                            .normal
-                                            .copyWith(right: 10),
-                                        child: ParallaxCards(
-                                          discription: controller
-                                              .headlineList[index]['title'],
-                                          pageVisibility: pageVisibility,
-                                          imageUrl: controller
-                                              .headlineList[index]['image'],
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                );
-                              },
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    const Space.small(),
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Padding(
-                        padding: context.spacing().insets.horizontal.normal,
-                        child: SmoothPageIndicator(
-                          controller:
-                              controller.sliderController, // PageController
-                          count: 3,
-                          effect: WormEffect(
-                            activeDotColor: AppColors.purplePrimary,
-                            dotHeight: 8,
-                            dotWidth: 10,
-                          ), // your preferred effect
-                          onDotClicked: (index) {},
-                        ),
-                      ),
-                    ),
-                    const Space.semiBig(),
-                    Padding(
-                      padding: context.spacing().insets.horizontal.normal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          AutoSizeText(
-                            'Recommended for you',
-                            style: context.bodyText1.copyWith(
-                              color: isDarkMode
-                                  ? AppColors.white
-                                  : AppColors.blackPrimary,
-                            ),
-                          ),
-                          const Space.semiSmall(),
-                          InkWell(
-                            onTap: () => Get.toNamed('more'),
-                            child: AutoSizeText(
-                              'See All',
-                              style: context.bodyText2.copyWith(
-                                color: AppColors.greyPrimary,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Space.normal(),
-                    GetBuilder<HomeController>(
-                      init: HomeController(),
-                      initState: (_) {},
-                      builder: (_) {
-                        return Skeleton(
-                          isLoading: controller.newsList.isEmpty,
-                          skeleton: SizedBox(
-                              height: 300,
-                              child: SkeletonListView(
-                                itemCount: 4,
-                              )),
-                          child: SizedBox(
-                            child: ListView.builder(
-                              itemCount: controller.newsList.length,
-                              physics: const NeverScrollableScrollPhysics(),
-                              shrinkWrap: true,
-                              itemBuilder: (context, index) => ArticleCards(
-                                index: index,
-                                url: controller.newsList[index]['link'],
-                                image: controller.newsList[index]['image'],
-                                title: controller.newsList[index]['title'],
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: controller.screenHieght,
-                  child: const CustomSearchBar(),
-                ),
-              ],
-            ),
-          ),
+    return Obx(
+      () => FadeIndexedStack(
+        index: controller.selectedPosition.value,
+        children: const [
+          MainPage(),
+          CategoriesPage(),
+          BookmarkPage(),
+          ProfilePage()
         ],
       ),
     );

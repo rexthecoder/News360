@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news360/src/logic/global/categories.dart';
 import 'package:news360/src/logic/global/variables.dart';
-import 'package:news360/src/presentation/pages/global/templates/export.dart';
+import 'package:news360/src/presentation/templates/export.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:spaces/spaces.dart';
 

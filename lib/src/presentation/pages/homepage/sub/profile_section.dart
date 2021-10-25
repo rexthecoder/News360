@@ -1,14 +1,13 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:get/get.dart';
 import 'package:news360/src/logic/global/profile_list.dart';
 import 'package:news360/src/logic/global/variables.dart';
-import 'package:news360/src/presentation/pages/global/templates/export.dart';
 import 'package:news360/src/presentation/pages/homepage/controller/profile_controller.dart';
+import 'package:news360/src/presentation/templates/export.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:news360/src/resources/assets/assets.gen.dart';
 import 'package:spaces/spaces.dart';
@@ -89,16 +88,18 @@ class ProfilePage extends GetView<ProfileController> {
                 ),
                 const Space.small(),
                 ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: profileList.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: context.spacing().insets.vertical.semiSmall,
-                        child: ProfileCard(
-                            onTap: () => controller.navigateToNextScreen(index),
-                            label: profileList[index]),
-                      );
-                    }),
+                  shrinkWrap: true,
+                  itemCount: profileList.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: context.spacing().insets.vertical.semiSmall,
+                      child: ProfileCard(
+                        onTap: () => controller.navigateToNextScreen(index),
+                        label: profileList[index],
+                      ),
+                    );
+                  },
+                ),
                 const Space.small(),
                 InkWell(
                   onTap: () => controller.handleSignOut(context),

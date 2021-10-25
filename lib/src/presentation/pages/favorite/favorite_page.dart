@@ -1,3 +1,11 @@
+/*
+ *  Copyright (c) 2021, Rexford Asamoah Agyapong 
+ * Use of this source code is governed by an MIT-style 
+ * license that can be found in the LICENSE file or at 
+ * https://opensource.org/licenses/MIT.
+ *
+ */
+
 import 'package:animated_clipper/animated_clipper.dart';
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
@@ -5,8 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:get/get.dart';
 import 'package:news360/src/logic/global/categories.dart';
-import 'package:news360/src/presentation/pages/global/templates/blue_expanded_button.dart';
-import 'package:news360/src/presentation/pages/global/templates/export.dart';
+import 'package:news360/src/presentation/templates/export.dart';
 import 'package:news360/src/presentation/theme/app_colors.dart';
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:spaces/spaces.dart';
@@ -24,70 +31,99 @@ class FavoritePage extends GetView<FavoriteController> {
       child: AppWrapper(
         child: ProgressHUD(
           child: Builder(builder: (context) {
-            return SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding: context.spacing().insets.horizontal.normal,
-                child: GetBuilder<FavoriteController>(builder: (_) {
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      const Space.normal(),
-                      AutoSizeText(
-                        'Select your favorite topics',
-                        style: context.h5.copyWith(
-                          color: AppColors.blackPrimary,
-                        ),
-                      ),
-                      const Space.semiSmall(),
-                      AutoSizeText(
-                        'Select some of your favorite topics to let us suggest better news for you.',
-                        style: context.bodyText1.copyWith(
-                          color: AppColors.greyPrimary,
-                        ),
-                      ),
-                      const Space.semiBig(),
-                      SizedBox(
-                        child: GridView.builder(
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            controller.selectedInterestFavorite[index] =
-                                controller.selectedInterestFavorite[index] ??
-                                    false;
-                            bool? isSelected =
-                                controller.selectedInterestFavorite[index];
-                            return GestureDetector(
-                              onTap: () =>
-                                  _.interestSelection(isSelected!, index),
-                              child: FavoriteAniamtionCard(
-                                label: categories[index],
-                                state: isSelected,
-                              ),
-                            );
-                          },
-                          itemCount: categories.length,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            childAspectRatio: 3 / 1.8,
-                          ),
-                        ),
-                      ),
-                      const Space.normal(),
-                      BlueExpandedButton(
-                        label: 'Complete',
-                        onPressed: () => controller.addToDataBase(context),
-                      ),
-                      const Space.normal(),
-                    ],
-                  );
-                }),
-              ),
+            return _FavoriteBody(
+              controller: controller,
             );
           }),
+        ),
+      ),
+    );
+  }
+}
+
+class _FavoriteBody extends StatelessWidget {
+  const _FavoriteBody({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+
+  final FavoriteController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      child: Padding(
+        padding: context.spacing().insets.horizontal.normal,
+        child: GetBuilder<FavoriteController>(builder: (_) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              const Space.normal(),
+              AutoSizeText(
+                'Select your favorite topics',
+                style: context.h5.copyWith(
+                  color: AppColors.blackPrimary,
+                ),
+              ),
+              const Space.semiSmall(),
+              AutoSizeText(
+                'Select some of your favorite topics to let us suggest better news for you.',
+                style: context.bodyText1.copyWith(
+                  color: AppColors.greyPrimary,
+                ),
+              ),
+              const Space.semiBig(),
+              _FavoriteCardBuilder(
+                controller: controller,
+              ),
+              const Space.normal(),
+              BlueExpandedButton(
+                label: 'Complete',
+                onPressed: () => controller.addToDataBase(context),
+              ),
+              const Space.normal(),
+            ],
+          );
+        }),
+      ),
+    );
+  }
+}
+
+class _FavoriteCardBuilder extends StatelessWidget {
+  const _FavoriteCardBuilder({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+
+  final FavoriteController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: GridView.builder(
+        padding: EdgeInsets.zero,
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          bool? isSelected = controller.selected(index);
+          return GestureDetector(
+            onTap: () => controller.interestSelection(
+              isSelected!,
+              index,
+            ),
+            child: FavoriteAniamtionCard(
+              label: categories[index],
+              state: isSelected,
+            ),
+          );
+        },
+        itemCount: categories.length,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 3 / 1.8,
         ),
       ),
     );

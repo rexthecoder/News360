@@ -34,6 +34,7 @@ class LoginController extends GetxController
   RxString emailIsFocus = 'false'.obs;
   RxString passwordIsFocus = 'false'.obs;
   RxBool isOverflow = false.obs;
+
 // Tracking Nodes state
   void _onFocusChange() {
     emailIsFocus(_emailFocusNode.hasFocus.toString());
