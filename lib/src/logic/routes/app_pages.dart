@@ -1,3 +1,11 @@
+/*
+ *  Copyright (c) 2021, Rexford Asamoah Agyapong 
+ * Use of this source code is governed by an MIT-style 
+ * license that can be found in the LICENSE file or at 
+ * https://opensource.org/licenses/MIT.
+ *
+ */
+
 import 'package:get/get.dart';
 import 'package:news360/src/presentation/pages/article/controller/article_controller.dart';
 import 'package:news360/src/presentation/pages/categoriesmore/controller/category_more_controller.dart';
@@ -17,12 +25,15 @@ abstract class AppPages {
       page: () => OnBoardingPage(),
     ),
     GetPage(
-        name: Routes.login,
-        transition: Transition.noTransition,
-        page: () => const LoginPage(),
-        binding: BindingsBuilder(() {
+      name: Routes.login,
+      transition: Transition.noTransition,
+      page: () => const LoginPage(),
+      binding: BindingsBuilder(
+        () {
           Get.lazyPut<LoginController>(() => LoginController());
-        })),
+        },
+      ),
+    ),
     GetPage(
       name: Routes.forgetPassword,
       page: () => const ForgetPasswordPage(),
@@ -46,25 +57,41 @@ abstract class AppPages {
       page: () => const FavoritePage(),
     ),
     GetPage(
-        transition: Transition.native,
-        name: Routes.home,
-        page: () => const HomePage(),
-        binding: BindingsBuilder(() {
-          Get.lazyPut<ProfileController>(() => ProfileController());
-          Get.lazyPut<HomeController>(() => HomeController());
-        })),
+      transition: Transition.native,
+      name: Routes.home,
+      page: () => const HomePage(),
+      binding: BindingsBuilder(
+        () {
+          Get.lazyPut<ProfileController>(
+            () => ProfileController(),
+          );
+          Get.lazyPut<HomeController>(
+            () => HomeController(),
+          );
+        },
+      ),
+    ),
     GetPage(
-        name: Routes.language,
-        page: () => const LanguagePage(),
-        binding: BindingsBuilder(() {
-          Get.lazyPut<LanguageController>(() => LanguageController());
-        })),
+      name: Routes.language,
+      page: () => const LanguagePage(),
+      binding: BindingsBuilder(
+        () {
+          Get.lazyPut<LanguageController>(
+            () => LanguageController(),
+          );
+        },
+      ),
+    ),
     GetPage(
       name: Routes.changePassword,
       page: (() => const ChangePasswordPage()),
-      binding: BindingsBuilder(() {
-        Get.lazyPut<ChangePasswordController>(() => ChangePasswordController());
-      }),
+      binding: BindingsBuilder(
+        () {
+          Get.lazyPut<ChangePasswordController>(
+            () => ChangePasswordController(),
+          );
+        },
+      ),
     ),
     GetPage(
       name: Routes.terms,
@@ -75,17 +102,28 @@ abstract class AppPages {
       page: () => const PrivacyPage(),
     ),
     GetPage(
-        name: Routes.article,
-        page: () => const ArticlePage(),
-        binding: BindingsBuilder(() {
-          Get.lazyPut<ArticleController>(() => ArticleController());
-        })),
-    GetPage(name: Routes.more, page: () => const MorePage()),
+      name: Routes.article,
+      page: () => const ArticlePage(),
+      binding: BindingsBuilder(
+        () {
+          Get.lazyPut<ArticleController>(
+            () => ArticleController(),
+          );
+        },
+      ),
+    ),
     GetPage(
-        name: Routes.categorymore,
-        page: () => const CategoryMorePage(),
-        binding: BindingsBuilder(() {
+      name: Routes.more,
+      page: () => const MorePage(),
+    ),
+    GetPage(
+      name: Routes.categorymore,
+      page: () => const CategoryMorePage(),
+      binding: BindingsBuilder(
+        () {
           Get.lazyPut<CategoryMoreController>(() => CategoryMoreController());
-        }))
+        },
+      ),
+    )
   ];
 }

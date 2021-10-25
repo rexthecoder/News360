@@ -1,4 +1,11 @@
-// Abstarction of the base scrapper
+/*
+ *  Copyright (c) 2021, Rexford Asamoah Agyapong 
+ * Use of this source code is governed by an MIT-style 
+ * license that can be found in the LICENSE file or at 
+ * https://opensource.org/licenses/MIT.
+ *
+ */
+
 import 'package:beautiful_soup_dart/beautiful_soup.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:http/http.dart';
@@ -6,6 +13,7 @@ import 'package:loggy/loggy.dart';
 import 'package:news360/src/logic/model/news_models/archive_data_model.dart';
 import 'package:news360/src/logic/model/news_models/headline_data_model.dart';
 
+// Abstarction of the base scrapper
 abstract class BaseScrapper {
   Future<Response> init({required String link});
   BeautifulSoup parse(String response);
@@ -15,6 +23,7 @@ abstract class BaseScrapper {
   dynamic archive(String response);
 }
 
+/// host all the scrapping of the website
 class Scrapper extends BaseScrapper with UiLoggy {
   var client = Client();
   late Response response;

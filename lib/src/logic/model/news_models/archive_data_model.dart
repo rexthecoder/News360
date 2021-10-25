@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 
+// maintain and sterilize the archive news from the pass website
 class ArchiveResponseModel {
   List<Map<String, String>> wrapData;
   ArchiveResponseModel({
@@ -35,7 +36,9 @@ class ArchiveResponseModel {
   String toJson() => json.encode(toMap());
 
   factory ArchiveResponseModel.fromJson(String source) =>
-      ArchiveResponseModel.fromMap(json.decode(source));
+      ArchiveResponseModel.fromMap(
+        json.decode(source),
+      );
 
   @override
   String toString() => 'ArchiveResponseModel(wrapData: $wrapData)';

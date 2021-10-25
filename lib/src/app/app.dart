@@ -1,9 +1,16 @@
+/*
+ *  Copyright (c) 2021, Rexford Asamoah Agyapong 
+ * Use of this source code is governed by an MIT-style 
+ * license that can be found in the LICENSE file or at 
+ * https://opensource.org/licenses/MIT.
+ *
+ */
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:news360/src/localization/localization_services.dart';
-import 'package:news360/src/logic/authentication/authentication_controller.dart';
-import 'package:news360/src/logic/authentication/authentication_state.dart';
+import 'package:news360/src/logic/authentication/export.dart';
 import 'package:news360/src/logic/global/variables.dart';
 import 'package:news360/src/presentation/theme/app_theme.dart';
 
@@ -20,12 +27,11 @@ class App extends GetWidget<AuthenticationController> {
 
   @override
   Widget build(BuildContext context) {
+    // System display configuration
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    // setting the mode incase this is the first time user is using the app
     appdata.writeIfNull('darkmode', false);
-    // Glue the SettingsController to the MaterialApp.
-    //
-    // The AnimatedBuilder Widget listens to the SettingsController for changes.
-    // Whenever the user updates their settings, the MaterialApp is rebuilt.
+
     return SimpleBuilder(
       builder: (_) {
         isDarkMode = appdata.read('darkmode');
@@ -33,35 +39,48 @@ class App extends GetWidget<AuthenticationController> {
           value: isDarkMode ? darkSystemTheme : systemTheme,
           child: GetMaterialApp(
             title: 'title'.tr,
-
             debugShowCheckedModeBanner: false,
-            initialRoute: controller.state is UnAuthenticated
-                ? Routes.onBoarding
-                : controller.state is Authenticated
-                    ? Routes.home
-                    : Routes.onBoarding,
-
+            initialRoute: initialRoute(
+              state: controller.state,
+            ),
             defaultTransition: Transition.leftToRight,
-            showPerformanceOverlay: false,
-            // home: TestingScreen(),
-            builder: (context, child) => Spacing(
-              dataBuilder: (context) {
-                final mediaQuery = MediaQuery.of(context);
-                return SpacingData.generate(
-                  mediaQuery.size.width > 300.0 ? 20.0 : 10.0,
-                );
-              },
+            builder: (context, child) => _SpacesWidget(
               child: child!,
             ),
             getPages: AppPages.pages,
             locale: LocalizationService.locale,
             fallbackLocale: LocalizationService.fallbackLocale,
             translations: LocalizationService(),
-
             theme: isDarkMode ? darkTheme : lightTheme,
           ),
         );
       },
     );
   }
+}
+
+class _SpacesWidget extends StatelessWidget {
+  const _SpacesWidget({Key? key, required this.child}) : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Spacing(
+      dataBuilder: (context) {
+        final mediaQuery = MediaQuery.of(context);
+        return SpacingData.generate(
+          mediaQuery.size.width > 300.0 ? 20.0 : 10.0,
+        );
+      },
+      child: child,
+    );
+  }
+}
+
+//maintain the routing base on the  ccurrent auth state
+String initialRoute({required state}) {
+  if (state is UnAuthenticated) return Routes.onBoarding;
+  if (state is Authenticated) return Routes.home;
+  return Routes.onBoarding;
 }

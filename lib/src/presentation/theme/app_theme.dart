@@ -1,4 +1,10 @@
-import 'package:flutter/cupertino.dart';
+/*
+ *  Copyright (c) 2021, Rexford Asamoah Agyapong 
+ * Use of this source code is governed by an MIT-style 
+ * license that can be found in the LICENSE file or at 
+ * https://opensource.org/licenses/MIT.
+ *
+ */
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:news360/src/resources/assets/fonts.gen.dart';
@@ -6,10 +12,11 @@ import 'package:news360/src/presentation/theme/text_styles.dart';
 
 import 'app_colors.dart';
 
-//ThemeMode
+/// ThemeMode
 var lightTheme = AppTheme.lightTheme();
 var darkTheme = AppTheme.darkTheme();
 
+/// System theme config to replace for each theme mode
 var systemTheme = SystemUiOverlayStyle.light.copyWith(
   systemNavigationBarColor: Colors.white,
   statusBarColor: Colors.white,
@@ -22,9 +29,11 @@ var darkSystemTheme = SystemUiOverlayStyle.dark.copyWith(
   statusBarIconBrightness: Brightness.light,
 );
 
+// Contains all the configuration theme for the app
 class AppTheme {
   const AppTheme();
 
+  // Light theme
   static ThemeData lightTheme() {
     final ThemeData base = ThemeData.light();
 
@@ -42,6 +51,7 @@ class AppTheme {
     );
   }
 
+  // Dark theme
   static ThemeData darkTheme() {
     final ThemeData base = ThemeData.dark();
 
