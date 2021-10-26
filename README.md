@@ -10,13 +10,14 @@
 </p>
 
 ![Header](media/header.png)
-> Mobile App that  gives ghana updated news scrap from GhanaWeb.
+> Mobile App that gives ghana updated news scrap from GhanaWeb.
 
 ### 🏠 [Overview](https://github.com/Rexfordasamoah51/News360)
 
-News360 is a mobile app built with Flutter. Due to less couple data around for building news app for my country. I try using the magic of dart Scraping in order for me to populate the data inside the app. The source data is stream from Ghanaweb.com
+News360 is a mobile app built with Flutter. Due to fewer couple data around for building news app for my country. I try using the magic of dart Scraping in order for me to populate the data inside the app. The source data is streamed from Ghanaweb.com
 
 ### ✨ [Demo](https://github.com/Rexfordasamoah51/News360/releases/tag/news)
+[app](media/demo.gif)
 https://user-images.githubusercontent.com/36260221/138882649-7b026bfe-a4ed-4a6a-b3e2-69ebd74cc1d7.mp4
 
 ## Feature Screenshot
