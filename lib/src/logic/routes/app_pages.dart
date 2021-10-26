@@ -48,7 +48,6 @@ abstract class AppPages {
     ),
     GetPage(
       name: Routes.register,
-      transition: Transition.leftToRightWithFade,
       page: () => const RegisterPage(),
     ),
     GetPage(
@@ -57,7 +56,6 @@ abstract class AppPages {
       page: () => const FavoritePage(),
     ),
     GetPage(
-      transition: Transition.native,
       name: Routes.home,
       page: () => const HomePage(),
       binding: BindingsBuilder(

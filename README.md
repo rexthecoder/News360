@@ -9,16 +9,20 @@
   </a>
 </p>
 
+![Header](media/header.png)
 > Mobile App that  gives ghana updated news scrap from GhanaWeb.
 
-### 🏠 [Homepage](https://github.com/Rexfordasamoah51/News360)
+### 🏠 [Overview](https://github.com/Rexfordasamoah51/News360)
+
+News360 is a mobile app built with Flutter. Due to less couple data around for building news app for my country. I try using the magic of dart Scraping in order for me to populate the data inside the app. The source data is stream from Ghanaweb.com
 
 ### ✨ [Demo](https://github.com/Rexfordasamoah51/News360/releases/tag/news)
+https://user-images.githubusercontent.com/36260221/138882649-7b026bfe-a4ed-4a6a-b3e2-69ebd74cc1d7.mp4
 
 ## Feature Screenshot
 
 📱 **Light Theme**
-![flutter_19|100x27](https://user-images.githubusercontent.com/36260221/138795500-c5267499-8267-4bf5-be29-4955bc68cd01.png)
+<img src="https://user-images.githubusercontent.com/36260221/138795500-c5267499-8267-4bf5-be29-4955bc68cd01.png" width="150" height="350">
 
 ## Author
 
@@ -27,6 +31,22 @@
 * Twitter: [@Rexthedev](https://twitter.com/Rexthedev)
 * Github: [@Rexfordasamoah51](https://github.com/Rexfordasamoah51)
 * LinkedIn: [@rexfordasamoah](https://linkedin.com/in/rexfordasamoah)
+
+# License
+
+    Copyright 2021 Rexford Asamoah
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 
 ## Show your support
 

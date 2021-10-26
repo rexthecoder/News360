@@ -52,7 +52,9 @@ class ProfilePage extends GetView<ProfileController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         AutoSizeText(
-                          '${user?.value.username}',
+                          user == null
+                              ? 'cartonuser'
+                              : '${user?.value.username}',
                           style: context.h6.copyWith(
                             fontWeight: FontWeight.bold,
                             color: isDarkMode
