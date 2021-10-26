@@ -1,30 +1,33 @@
-# news360
+<h1 align="center">Welcome to News360 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-v1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: Rexford Asamoah" src="https://img.shields.io/badge/License-Rexford Asamoah-yellow.svg" />
+  </a>
+  <a href="https://twitter.com/Rexthedev" target="_blank">
+    <img alt="Twitter: Rexthedev" src="https://img.shields.io/twitter/follow/Rexthedev.svg?style=social" />
+  </a>
+</p>
 
-A new Flutter project.
+> Mobile App that  gives ghana updated news scrap from GhanaWeb.
 
-## Getting Started
+### 🏠 [Homepage](https://github.com/Rexfordasamoah51/News360)
 
-This project is a starting point for a Flutter application that follows the
-[simple app state management
-tutorial](https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple).
+### ✨ [Demo](https://github.com/Rexfordasamoah51/News360/releases/tag/news)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Feature Screenshot
 
-## Assets
+📱 **Light Theme**
+![flutter_19|100x27](https://user-images.githubusercontent.com/36260221/138795500-c5267499-8267-4bf5-be29-4955bc68cd01.png)
 
-The `assets` directory houses images, fonts, and any other files you want to
-include with your application.
+## Author
 
-The `assets/images` directory contains [resolution-aware
-images](https://flutter.dev/docs/development/ui/assets-and-images#resolution-aware).
+👤 **Rexford Asamoah**
 
-## Localization
+* Twitter: [@Rexthedev](https://twitter.com/Rexthedev)
+* Github: [@Rexfordasamoah51](https://github.com/Rexfordasamoah51)
+* LinkedIn: [@rexfordasamoah](https://linkedin.com/in/rexfordasamoah)
 
-This project generates localized messages based on arb files found in
-the `lib/src/localization` directory.
+## Show your support
 
-To support additional languages, please visit the tutorial on
-[Internationalizing Flutter
-apps](https://flutter.dev/docs/development/accessibility-and-localization/internationalization)
+Give a ⭐️ if this project helped you!

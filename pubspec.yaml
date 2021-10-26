@@ -1,5 +1,5 @@
 name: news360
-description: A new Flutter project.
+description: News App that  gives ghana updated news scrap from GhanaWeb.
 
 # Prevent accidental publishing to pub.dev.
 publish_to: "none"

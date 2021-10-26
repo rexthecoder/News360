@@ -103,6 +103,7 @@ abstract class AppPages {
     ),
     GetPage(
       name: Routes.article,
+      transition: Transition.noTransition,
       page: () => const ArticlePage(),
       binding: BindingsBuilder(
         () {
