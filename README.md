@@ -20,8 +20,23 @@ News360 is a mobile app built with Flutter. Due to fewer couple data around for 
 
 ## Feature Screenshot
 
-📱 **Light Theme**
-<img src="https://user-images.githubusercontent.com/36260221/138795500-c5267499-8267-4bf5-be29-4955bc68cd01.png" width="150" height="350">
+<img src="media/flutter_01.png" width="160" height="350">
+<img src="media/flutter_02.png" width="160" height="350">
+<img src="media/flutter_03.png" width="160" height="350">
+<img src="media/flutter_04.png" width="160" height="350">
+<img src="media/flutter_05.png" width="160" height="350">
+<img src="media/flutter_06.png" width="160" height="350">
+<img src="media/flutter_08.png" width="160" height="350">
+<img src="media/flutter_09.png" width="160" height="350">
+<img src="media/flutter_10.png" width="160" height="350">
+<img src="media/flutter_11.png" width="160" height="350">
+<img src="media/flutter_12.png" width="160" height="350">
+<img src="media/flutter_13.png" width="160" height="350">
+<img src="media/flutter_14.png" width="160" height="350">
+<img src="media/flutter_15.png" width="160" height="350">
+<img src="media/flutter_16.png" width="160" height="350">
+
+> The app has some screen which wasn't feature here. Therefore you can dowmload it yourself and see the experince
 
 ## Author
 
