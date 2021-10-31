@@ -22,9 +22,8 @@ class DataBaseService {
   Future<void> addCategory(Map<String, String> data, {context}) async {
     final progress = ProgressHUD.of(context);
     // for delayoing the logout time
-    Future.delayed(const Duration(seconds: 5), () {
-      progress?.showWithText('Loading...');
-    });
+    progress?.showWithText('Loading...');
+    await Future.delayed(const Duration(seconds: 5), () {});
 
     try {
       await category.doc(userEmail).set(data);

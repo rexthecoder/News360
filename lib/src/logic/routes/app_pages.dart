@@ -51,7 +51,6 @@ abstract class AppPages {
       page: () => const RegisterPage(),
     ),
     GetPage(
-      transition: Transition.upToDown,
       name: Routes.favorite,
       page: () => const FavoritePage(),
     ),

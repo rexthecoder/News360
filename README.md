@@ -20,7 +20,7 @@ News360 is a mobile app built with Flutter. Due to fewer couple data around for 
 https://user-images.githubusercontent.com/36260221/138882649-7b026bfe-a4ed-4a6a-b3e2-69ebd74cc1d7.mp4
 ## 💥Feature Screenshot
 
-  Made with        💙   |  with Flutter
+  Made with        💙     |  with Flutter
 :-------------------------:|:-------------------------:
 <img src="media/flutter_01.png" width="160" height="350"> |<img src="media/flutter_02.png" width="160" height="350"> 
 <img src="media/flutter_03.png" width="160" height="350"> |<img src="media/flutter_04.png" width="160" height="350">
