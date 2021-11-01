@@ -1,4 +1,4 @@
-package com.example.news360
+package com.rstudio.news360
 
 import io.flutter.embedding.android.FlutterActivity
 

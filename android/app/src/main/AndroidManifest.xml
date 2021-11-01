@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.news360">
+    package="com.rstudio.news360">
    <application
         android:label="news360"
         android:icon="@mipmap/launcher_icon">
