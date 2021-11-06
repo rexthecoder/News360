@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_progress_hud/flutter_progress_hud.dart';
-import 'package:flutter_styled_toast/flutter_styled_toast.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
-import 'package:news360/src/logic/authentication/authentication_controller.dart';
-import 'package:news360/src/logic/authentication/authentication_state.dart';
-import 'package:news360/src/logic/model/user_models/user_data_model.dart';
+
+import '../../../../logic/authentication/authentication_controller.dart';
+import '../../../../logic/authentication/authentication_state.dart';
+import '../../../../logic/model/user_models/user_data_model.dart';
 
 class RegisterController extends GetxController with UiLoggy {
   //Firebase configuration
@@ -51,29 +51,28 @@ class RegisterController extends GetxController with UiLoggy {
 
 // Function with side effect. Validate and register user at the same time
   Future<void> registerUser(context) async {
-    final progress = ProgressHUD.of(context);
     if (_registerFormKey.currentState!.validate()) {
       _registerFormKey.currentState!.save();
-      progress?.showWithText('Loading...');
+      EasyLoading.show(status: 'Loading...');
       await _authenticationController.signUp(
         email: userModel.email!,
         password: userModel.password!,
         username: userModel.username!,
       );
-      signUpConfiguration(context, progress);
+      signUpConfiguration();
     }
   }
 
-  void signUpConfiguration(context, progress) {
+  void signUpConfiguration() {
     if (_authenticationController.state is AuthenticatedFailure) {
-      progress?.dismiss();
+      EasyLoading.dismiss();
       final error =
           (_authenticationController.state as AuthenticatedFailure).message;
 
-      showToast(error, context: context);
+      EasyLoading.showToast(error);
     }
     if (_authenticationController.state is Authenticated) {
-      progress?.dismiss();
+      EasyLoading.dismiss();
       Get.toNamed('favorite');
     }
   }

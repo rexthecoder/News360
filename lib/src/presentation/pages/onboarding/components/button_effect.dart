@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
+import '../../../theme/theme.dart';
 
 class ButtonEffect extends StatefulWidget {
   const ButtonEffect({Key? key}) : super(key: key);

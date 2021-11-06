@@ -1,12 +1,11 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:get/get.dart';
-import 'package:news360/src/presentation/templates/export.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:spaces/spaces.dart';
 
+import '../../templates/export.dart';
+import '../../theme/theme.dart';
 import 'controller/register_controller.dart';
 
 class RegisterPage extends GetView<RegisterController> {
@@ -31,53 +30,49 @@ class _RegisterBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ProgressHUD(
-      child: Builder(builder: (context) {
-        return SizedBox(
-          width: double.infinity,
-          child: Padding(
-            padding: context.spacing().insets.horizontal.normal,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Space.normal(),
-                AutoSizeText(
-                  'Welcome to News360 👋',
-                  style: context.h5.copyWith(
-                    color: AppColors.blackPrimary,
-                  ),
-                ),
-                const Space.semiSmall(),
-                AutoSizeText(
-                  'Hello, I guess you are new around here. You can start using the application after sign up.',
+    return SizedBox(
+      width: double.infinity,
+      child: Padding(
+        padding: context.spacing().insets.horizontal.normal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Space.normal(),
+            AutoSizeText(
+              'Welcome to News360 👋',
+              style: context.h5.copyWith(
+                color: AppColors.blackPrimary,
+              ),
+            ),
+            const Space.semiSmall(),
+            AutoSizeText(
+              'Hello, I guess you are new around here. You can start using the application after sign up.',
+              style: context.bodyText1.copyWith(
+                color: AppColors.greyPrimary,
+              ),
+            ),
+            const Space.semiBig(),
+            _RegisterForm(
+              controller: controller,
+            ),
+            const Spacer(),
+            Align(
+              alignment: Alignment.center,
+              child: GestureDetector(
+                onTap: () => Get.back(),
+                child: AutoSizeText(
+                  "Already have an account? Sign In",
                   style: context.bodyText1.copyWith(
                     color: AppColors.greyPrimary,
                   ),
                 ),
-                const Space.semiBig(),
-                _RegisterForm(
-                  controller: controller,
-                ),
-                const Spacer(),
-                Align(
-                  alignment: Alignment.center,
-                  child: GestureDetector(
-                    onTap: () => Get.back(),
-                    child: AutoSizeText(
-                      "Already have an account? Sign In",
-                      style: context.bodyText1.copyWith(
-                        color: AppColors.greyPrimary,
-                      ),
-                    ),
-                  ),
-                ),
-                const Space.big()
-              ],
+              ),
             ),
-          ),
-        );
-      }),
+            const Space.big()
+          ],
+        ),
+      ),
     );
   }
 }

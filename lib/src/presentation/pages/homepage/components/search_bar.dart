@@ -3,7 +3,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
+import '../../../theme/theme.dart';
 
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({

@@ -2,14 +2,13 @@ import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:get/get.dart';
-import 'package:news360/src/logic/global/profile_list.dart';
-import 'package:news360/src/logic/global/variables.dart';
-import 'package:news360/src/presentation/pages/homepage/controller/profile_controller.dart';
-import 'package:news360/src/presentation/templates/export.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
-import 'package:news360/src/resources/assets/assets.gen.dart';
+import '../../../../logic/global/profile_list.dart';
+import '../../../../logic/global/variables.dart';
+import '../controller/profile_controller.dart';
+import '../../../templates/export.dart';
+import '../../../theme/theme.dart';
+import '../../../../resources/assets/assets.gen.dart';
 import 'package:spaces/spaces.dart';
 import 'package:switcher/core/switcher_size.dart';
 import 'package:switcher/switcher.dart';
@@ -21,102 +20,99 @@ class ProfilePage extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async => false,
-      child: AppWrapper(child: ProgressHUD(
-        child: Builder(builder: (context) {
-          return Padding(
-            padding: context.spacing().insets.horizontal.normal,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                AutoSizeText(
-                  'Profile',
-                  style: context.h5.copyWith(
-                    color:
-                        isDarkMode ? AppColors.white : AppColors.blackPrimary,
-                  ),
+      child: AppWrapper(
+        child: Padding(
+          padding: context.spacing().insets.horizontal.normal,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              AutoSizeText(
+                'Profile',
+                style: context.h5.copyWith(
+                  color: isDarkMode ? AppColors.white : AppColors.blackPrimary,
                 ),
-                const Space.normal(),
-                Row(
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: AppColors.greyLight,
-                      maxRadius: 40,
-                      backgroundImage: AssetImage(
-                        Assets.images.avatargold.path,
-                      ),
+              ),
+              const Space.normal(),
+              Row(
+                children: [
+                  CircleAvatar(
+                    backgroundColor: AppColors.greyLight,
+                    maxRadius: 40,
+                    backgroundImage: AssetImage(
+                      Assets.images.avatargold.path,
                     ),
-                    const Space.normal(),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        AutoSizeText(
-                          user?.value.username == null
-                              ? 'cartonuser'
-                              : '${user?.value.username}',
-                          style: context.h6.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: isDarkMode
-                                ? AppColors.white
-                                : AppColors.blackPrimary,
-                          ),
-                        ),
-                        AutoSizeText(
-                          '${user?.value.email}',
-                          overflow: TextOverflow.fade,
-                          style: context.bodyText1.copyWith(
-                            color: AppColors.greyPrimary,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                const Space.normal(),
-                ProfileCard(
-                  label: 'notification'.tr,
-                  trailing: Switcher(
-                    value: false,
-                    size: SwitcherSize.medium,
-                    iconOff: EvaIcons.bell,
-                    enabledSwitcherButtonRotate: true,
-                    colorOff: AppColors.greyLight,
-                    colorOn: AppColors.purplePrimary,
-                    onChanged: (bool state) {
-                      //
-                    },
                   ),
-                ),
-                const Space.small(),
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: profileList.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: context.spacing().insets.vertical.semiSmall,
-                      child: ProfileCard(
-                        onTap: () => controller.navigateToNextScreen(index),
-                        label: profileList[index],
+                  const Space.normal(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      AutoSizeText(
+                        user?.value.username == null
+                            ? 'cartonuser'
+                            : '${user?.value.username}',
+                        style: context.h6.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: isDarkMode
+                              ? AppColors.white
+                              : AppColors.blackPrimary,
+                        ),
                       ),
-                    );
+                      AutoSizeText(
+                        '${user?.value.email}',
+                        overflow: TextOverflow.fade,
+                        style: context.bodyText1.copyWith(
+                          color: AppColors.greyPrimary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const Space.normal(),
+              ProfileCard(
+                label: 'notification'.tr,
+                trailing: Switcher(
+                  value: false,
+                  size: SwitcherSize.medium,
+                  iconOff: EvaIcons.bell,
+                  enabledSwitcherButtonRotate: true,
+                  colorOff: AppColors.greyLight,
+                  colorOn: AppColors.purplePrimary,
+                  onChanged: (bool state) {
+                    //
                   },
                 ),
-                const Space.small(),
-                InkWell(
-                  onTap: () => controller.handleSignOut(context),
-                  child: ProfileCard(
-                    label: 'signOut'.tr,
-                    trailing: const Icon(
-                      EvaIcons.logOut,
+              ),
+              const Space.small(),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: profileList.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: context.spacing().insets.vertical.semiSmall,
+                    child: ProfileCard(
+                      onTap: () => controller.navigateToNextScreen(index),
+                      label: profileList[index],
                     ),
+                  );
+                },
+              ),
+              const Space.small(),
+              InkWell(
+                onTap: () => controller.handleSignOut(context),
+                child: ProfileCard(
+                  label: 'signOut'.tr,
+                  trailing: const Icon(
+                    EvaIcons.logOut,
                   ),
                 ),
-              ],
-            ),
-          );
-        }),
-      )),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

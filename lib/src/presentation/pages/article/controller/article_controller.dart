@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
-import 'package:news360/src/logic/scrapper/apps_scrapper.dart';
+import '../../../../logic/scrapper/apps_scrapper.dart';
 
 class ArticleController extends GetxController {
   final scrollcontroller = ScrollController();

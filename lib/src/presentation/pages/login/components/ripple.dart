@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
+import '../../../theme/theme.dart';
 
 class Ripple extends StatelessWidget {
   final double radius;
@@ -7,7 +7,7 @@ class Ripple extends StatelessWidget {
   const Ripple({
     Key? key,
     required this.radius,
-  }):super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class Ripple extends StatelessWidget {
       child: Container(
         width: 2 * radius,
         height: 2 * radius,
-        decoration:  BoxDecoration(
+        decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: AppColors.purplePrimary,
         ),

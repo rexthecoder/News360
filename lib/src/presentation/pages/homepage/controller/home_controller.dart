@@ -3,11 +3,11 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
-import 'package:news360/src/logic/authentication/authentication_controller.dart';
-import 'package:news360/src/logic/authentication/authentication_state.dart';
-import 'package:news360/src/logic/global/categories.dart';
-import 'package:news360/src/logic/global/variables.dart';
-import 'package:news360/src/logic/scrapper/apps_scrapper.dart';
+import '../../../../logic/authentication/authentication_controller.dart';
+import '../../../../logic/authentication/authentication_state.dart';
+import '../../../../logic/global/categories.dart';
+import '../../../../logic/global/variables.dart';
+import '../../../../logic/scrapper/apps_scrapper.dart';
 
 class HomeController extends GetxController
     with SingleGetTickerProviderMixin, UiLoggy {

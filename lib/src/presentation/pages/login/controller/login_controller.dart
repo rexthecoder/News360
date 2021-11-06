@@ -1,13 +1,13 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_progress_hud/flutter_progress_hud.dart';
-import 'package:flutter_styled_toast/flutter_styled_toast.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
-import 'package:news360/src/logic/authentication/authentication_controller.dart';
-import 'package:news360/src/logic/authentication/authentication_state.dart';
-import 'package:news360/src/logic/model/user_models/user_data_model.dart';
+
+import '../../../../logic/authentication/authentication_controller.dart';
+import '../../../../logic/authentication/authentication_state.dart';
+import '../../../../logic/model/user_models/user_data_model.dart';
 
 class LoginController extends GetxController
     with SingleGetTickerProviderMixin, UiLoggy {
@@ -21,7 +21,7 @@ class LoginController extends GetxController
   late final AnimationController rippleAnimationController;
   late Animation<double> rippleAnimation;
 
-//Textfield managing
+  //Textfield managing
   final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
   final TextEditingController _password = TextEditingController();
   final TextEditingController _email = TextEditingController();
@@ -91,28 +91,27 @@ class LoginController extends GetxController
   Future<void> loginUser(
     context,
   ) async {
-    final progress = ProgressHUD.of(context);
     if (_loginFormKey.currentState!.validate()) {
       _loginFormKey.currentState!.save();
-      progress?.showWithText('Loading...');
+      EasyLoading.show(status: 'Loading...');
       await _authenticationController.signIn(
         email: userModel.email!,
         password: userModel.password!.trim(),
       );
-      loginConfiguration(context, progress);
+      loginConfiguration();
     }
   }
 
-  void loginConfiguration(context, progress) {
+  void loginConfiguration() {
     if (_authenticationController.state is AuthenticatedFailure) {
-      progress?.dismiss();
+      EasyLoading.dismiss();
       final error =
           (_authenticationController.state as AuthenticatedFailure).message;
 
-      showToast(error, context: context);
+      EasyLoading.showToast(error);
     }
     if (_authenticationController.state is Authenticated) {
-      progress?.dismiss();
+      EasyLoading.dismiss();
       Get.offNamed('/home');
     }
   }

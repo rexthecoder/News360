@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news360/src/app/intializer.dart';
+import 'src/app/intializer.dart';
 
-import 'src/app/app.dart';
+import 'src/app/app_config.dart';
 
 void main() async {
   await init();

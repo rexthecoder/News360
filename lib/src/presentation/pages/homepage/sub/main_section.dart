@@ -10,7 +10,7 @@ import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news360/src/logic/global/export.dart';
+import 'package:news360/src/logic/logic.dart';
 import 'package:news360/src/presentation/pages/homepage/components/home_parallax_card.dart';
 import 'package:news360/src/presentation/pages/homepage/components/search_bar.dart';
 import 'package:news360/src/presentation/pages/homepage/controller/home_controller.dart';

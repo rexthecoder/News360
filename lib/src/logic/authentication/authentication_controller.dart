@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:news360/src/logic/global/variables.dart';
+import '../global/variables.dart';
 
 import 'auth_configuration.dart';
 import 'authentication_state.dart';

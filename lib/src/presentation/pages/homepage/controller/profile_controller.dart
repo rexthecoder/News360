@@ -1,8 +1,8 @@
-import 'package:flutter_progress_hud/flutter_progress_hud.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
-import 'package:news360/src/logic/authentication/authentication_controller.dart';
-import 'package:news360/src/logic/global/variables.dart';
+import '../../../../logic/authentication/authentication_controller.dart';
+import '../../../../logic/global/variables.dart';
 
 class ProfileController extends GetxController with UiLoggy {
   AuthenticationController auth = Get.find();
@@ -39,11 +39,10 @@ class ProfileController extends GetxController with UiLoggy {
 
   //Process sign out
   Future<void> processSignOut(context) async {
-    final progress = ProgressHUD.of(context);
-    progress?.showWithText('Signing out...');
+    EasyLoading.show(status: 'Signing out...');
     Future.delayed(const Duration(seconds: 3), () {
       auth.signOut();
-      progress?.dismiss();
+      EasyLoading.dismiss();
       isPointerAbsorbing.value = false;
       Get.toNamed('login', arguments: false);
     });

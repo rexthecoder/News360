@@ -1,7 +1,7 @@
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
-import 'package:news360/src/resources/assets/assets.gen.dart';
+import '../theme/theme.dart';
+import '../../resources/assets/assets.gen.dart';
 
 class ButtonWithPrefix extends StatelessWidget {
   const ButtonWithPrefix({

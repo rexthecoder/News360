@@ -10,7 +10,6 @@ import 'package:animated_clipper/animated_clipper.dart';
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:get/get.dart';
 import 'package:news360/src/logic/global/categories.dart';
 import 'package:news360/src/presentation/templates/export.dart';
@@ -29,12 +28,8 @@ class FavoritePage extends GetView<FavoriteController> {
     return WillPopScope(
       onWillPop: () async => false,
       child: AppWrapper(
-        child: ProgressHUD(
-          child: Builder(builder: (context) {
-            return _FavoriteBody(
-              controller: controller,
-            );
-          }),
+        child: _FavoriteBody(
+          controller: controller,
         ),
       ),
     );

@@ -2,9 +2,8 @@ import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news360/src/presentation/templates/export.dart';
-import 'package:news360/src/presentation/theme/app_colors.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
+import '../../templates/export.dart';
+import '../../theme/theme.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:spaces/spaces.dart';
 

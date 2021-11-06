@@ -8,7 +8,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:news360/src/app/app.dart';
+import 'package:news360/src/app/app_config.dart';
 import 'package:news360/src/logic/authentication/export.dart';
 
 class MockAuthController extends Mock implements AuthenticationController {}

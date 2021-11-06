@@ -1,8 +1,8 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
-import 'package:news360/src/presentation/pages/onboarding/components/card_transformer.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
+import '../../onboarding/components/card_transformer.dart';
+import '../../../theme/theme.dart';
 import 'package:optimized_cached_image/optimized_cached_image.dart';
 
 class ParallaxCards extends StatelessWidget {

@@ -13,7 +13,6 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news360/src/logic/global/lanaguages_list.dart';
-
 import 'package:news360/src/presentation/pages/language/controller/lanaguage_controller.dart';
 import 'package:news360/src/presentation/templates/export.dart';
 import 'package:news360/src/presentation/theme/theme.dart';

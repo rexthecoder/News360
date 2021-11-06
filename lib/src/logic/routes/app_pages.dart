@@ -7,13 +7,7 @@
  */
 
 import 'package:get/get.dart';
-import 'package:news360/src/presentation/pages/article/controller/article_controller.dart';
-import 'package:news360/src/presentation/pages/categoriesmore/controller/category_more_controller.dart';
-import 'package:news360/src/presentation/pages/change_password/controller/change_password_controller.dart';
-import 'package:news360/src/presentation/pages/homepage/controller/home_controller.dart';
-import 'package:news360/src/presentation/pages/homepage/controller/profile_controller.dart';
-import 'package:news360/src/presentation/pages/language/controller/lanaguage_controller.dart';
-import 'package:news360/src/presentation/pages/login/controller/login_controller.dart';
+import 'package:news360/src/presentation/pages/onboarding/onboarding.dart';
 import 'package:news360/src/presentation/pages/pages.dart';
 
 part './app_routes.dart';

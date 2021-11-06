@@ -8,8 +8,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_progress_hud/flutter_progress_hud.dart';
-import 'package:flutter_styled_toast/flutter_styled_toast.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 // DataService just creat model for add my favirte to firebase store
@@ -20,18 +19,17 @@ class DataBaseService {
   );
 
   Future<void> addCategory(Map<String, String> data, {context}) async {
-    final progress = ProgressHUD.of(context);
-    // for delayoing the logout time
-    progress?.showWithText('Loading...');
+    // for delayoing the database time
+    EasyLoading.show(status: 'Loading...');
     await Future.delayed(const Duration(seconds: 5), () {});
 
     try {
       await category.doc(userEmail).set(data);
-      progress?.dismiss();
+      EasyLoading.dismiss();
       Get.offAndToNamed('home');
     } catch (e) {
-      progress?.dismiss();
-      showToast('$e', context: context);
+      EasyLoading.dismiss();
+      EasyLoading.showToast(('$e'));
     }
   }
 }

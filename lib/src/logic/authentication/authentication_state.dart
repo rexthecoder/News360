@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:news360/src/logic/model/user_models/user_data_model.dart';
+import '../model/user_models/user_data_model.dart';
 
 class AuthenticationState extends Equatable {
   const AuthenticationState();

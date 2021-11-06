@@ -1,4 +1,4 @@
-import 'package:news360/src/resources/assets/assets.gen.dart';
+import '../../../../resources/assets/assets.gen.dart';
 
 class ParallaxCardItem {
   ParallaxCardItem({

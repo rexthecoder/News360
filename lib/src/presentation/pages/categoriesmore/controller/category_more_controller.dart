@@ -2,7 +2,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
-import 'package:news360/src/logic/scrapper/apps_scrapper.dart';
+import '../../../../logic/scrapper/apps_scrapper.dart';
 
 class CategoryMoreController extends GetxController with UiLoggy {
   var headline = [];

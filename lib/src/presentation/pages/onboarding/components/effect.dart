@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
+import '../../../theme/theme.dart';
 import 'carousel.dart';
 import 'card_transformer.dart';
 

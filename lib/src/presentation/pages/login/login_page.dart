@@ -7,17 +7,14 @@
  */
 
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
-import 'package:flutter/material.dart';
-
-import 'package:flutter_progress_hud/flutter_progress_hud.dart';
-import 'package:get/get.dart';
-
 import 'package:awesome_flutter_extensions/all.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:news360/src/presentation/templates/export.dart';
-
 import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:news360/src/resources/assets/assets.gen.dart';
 import 'package:spaces/spaces.dart';
+
 import 'components/ripple.dart';
 import 'controller/login_controller.dart';
 
@@ -47,27 +44,23 @@ class _LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ProgressHUD(
-      child: Builder(builder: (context) {
-        return SizedBox(
-          width: double.infinity,
-          child: Stack(
-            children: [
-              _LoginStackHeader(controller: controller),
-              controller.showRippleEffect
-                  ? AnimatedBuilder(
-                      animation: controller.rippleAnimation,
-                      builder: (_, Widget? child) {
-                        return Ripple(
-                          radius: controller.rippleAnimation.value,
-                        );
-                      },
-                    )
-                  : const SizedBox.shrink(),
-            ],
-          ),
-        );
-      }),
+    return SizedBox(
+      width: double.infinity,
+      child: Stack(
+        children: [
+          _LoginStackHeader(controller: controller),
+          controller.showRippleEffect
+              ? AnimatedBuilder(
+                  animation: controller.rippleAnimation,
+                  builder: (_, Widget? child) {
+                    return Ripple(
+                      radius: controller.rippleAnimation.value,
+                    );
+                  },
+                )
+              : const SizedBox.shrink(),
+        ],
+      ),
     );
   }
 }

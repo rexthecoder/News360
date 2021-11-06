@@ -10,8 +10,7 @@ import 'package:beautiful_soup_dart/beautiful_soup.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:http/http.dart';
 import 'package:loggy/loggy.dart';
-import 'package:news360/src/logic/model/news_models/archive_data_model.dart';
-import 'package:news360/src/logic/model/news_models/headline_data_model.dart';
+import 'package:news360/src/logic/logic.dart';
 
 // Abstarction of the base scrapper
 abstract class BaseScrapper {
