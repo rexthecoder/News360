@@ -2,11 +2,11 @@ import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../templates/export.dart';
-import '../../theme/theme.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:spaces/spaces.dart';
 
+import '../../templates/export.dart';
+import '../../theme/theme.dart';
 import 'controller/verify_controller.dart';
 
 class VerifyPage extends GetView<VerifyController> {
@@ -110,7 +110,7 @@ class _VerifyForm extends StatelessWidget {
               // });
             },
             beforeTextPaste: (text) {
-              debugPrint("Allowing to paste $text");
+              debugPrint('Allowing to paste $text');
               //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
               //but you can show anything you want here, like your pop up saying wrong paste format or etc
               return true;

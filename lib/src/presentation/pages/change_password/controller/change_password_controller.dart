@@ -18,18 +18,18 @@ class ChangePasswordController extends GetxController with UiLoggy {
   void _currentPasswordFocusChange() {
      currentPasswordIsFocus(_currentPasswordFocusNode.hasFocus.toString());
    
-    logDebug("Password Focus: " + _passwordFocusNode.hasFocus.toString());
+    logDebug('Password Focus: ' + _passwordFocusNode.hasFocus.toString());
   }
 
   void _onPasswordFocusChange() {
     passwordIsFocus(_passwordFocusNode.hasFocus.toString());
     logDebug(
-        "Password Focus: " + _currentPasswordFocusNode.hasFocus.toString());
+        'Password Focus: ' + _currentPasswordFocusNode.hasFocus.toString());
   }
 
   void _onRepeatPasswordFocusChange() {
     repeatPasswordIsFocus(_repeatPasswordFocusNode.hasFocus.toString());
-    logDebug("Password Focus: " + repeatPasswordFocusNode.hasFocus.toString());
+    logDebug('Password Focus: ' + repeatPasswordFocusNode.hasFocus.toString());
   }
 
   @override

@@ -3,10 +3,11 @@ import 'package:awesome_flutter_extensions/all.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:spaces/spaces.dart';
+
 import '../../../logic/global/policies.dart';
 import '../../templates/export.dart';
 import '../../theme/theme.dart';
-import 'package:spaces/spaces.dart';
 
 class TermsAndConditionPage extends GetView {
   const TermsAndConditionPage({Key? key}) : super(key: key);

@@ -9,10 +9,10 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news360/src/presentation/templates/export.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:spaces/spaces.dart';
 
+import '../../templates/export.dart';
+import '../../theme/theme.dart';
 import '../pages.dart';
 
 class MorePage extends GetView<HomeController> {

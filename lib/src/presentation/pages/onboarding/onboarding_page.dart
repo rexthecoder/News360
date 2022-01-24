@@ -10,16 +10,16 @@ import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news360/src/presentation/pages/onboarding/components/button_effect.dart';
-import 'package:news360/src/presentation/pages/onboarding/controller/onboarding_controller.dart';
-import 'package:news360/src/presentation/templates/export.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:spaces/spaces.dart';
 
+import '../../templates/export.dart';
+import '../../theme/theme.dart';
+import 'components/button_effect.dart';
 import 'components/card_transformer.dart';
 import 'components/carousel.dart';
 import 'components/effect.dart';
+import 'controller/onboarding_controller.dart';
 
 class OnBoardingPage extends GetView<OnBoardingController> {
   OnBoardingPage({Key? key}) : super(key: key);

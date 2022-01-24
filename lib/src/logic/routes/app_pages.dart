@@ -7,8 +7,9 @@
  */
 
 import 'package:get/get.dart';
-import 'package:news360/src/presentation/pages/onboarding/onboarding.dart';
-import 'package:news360/src/presentation/pages/pages.dart';
+
+import '../../presentation/pages/onboarding/onboarding.dart';
+import '../../presentation/pages/pages.dart';
 
 part './app_routes.dart';
 

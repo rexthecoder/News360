@@ -38,12 +38,12 @@ class LoginController extends GetxController
 // Tracking Nodes state
   void _onFocusChange() {
     emailIsFocus(_emailFocusNode.hasFocus.toString());
-    logDebug("Email Focus: " + _emailFocusNode.hasFocus.toString());
+    logDebug('Email Focus: ' + _emailFocusNode.hasFocus.toString());
   }
 
   void _onPasswordFocusChange() {
     passwordIsFocus(_passwordFocusNode.hasFocus.toString());
-    logDebug("Password Focus: " + _passwordFocusNode.hasFocus.toString());
+    logDebug('Password Focus: ' + _passwordFocusNode.hasFocus.toString());
   }
 
   void _updatePasswordVisibility() {

@@ -8,7 +8,8 @@
 
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
-import 'package:news360/src/logic/logic.dart';
+
+import '../../../../logic/logic.dart';
 
 class FavoriteController extends GetxController
     with SingleGetTickerProviderMixin, UiLoggy {

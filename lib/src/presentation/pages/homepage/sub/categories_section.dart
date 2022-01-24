@@ -2,11 +2,12 @@ import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:spaces/spaces.dart';
+
 import '../../../../logic/global/categories.dart';
 import '../../../../logic/global/variables.dart';
 import '../../../templates/export.dart';
 import '../../../theme/theme.dart';
-import 'package:spaces/spaces.dart';
 
 class CategoriesPage extends GetView {
   const CategoriesPage({Key? key}) : super(key: key);

@@ -11,7 +11,7 @@ class ForgetPasswordController extends GetxController with UiLoggy {
   // Tracking Nodes state
   void _onFocusChange() {
     emailIsFocus(_emailFocusNode.hasFocus.toString());
-    logDebug("Email Focus: " + _emailFocusNode.hasFocus.toString());
+    logDebug('Email Focus: ' + _emailFocusNode.hasFocus.toString());
   }
 
   //Controller getters

@@ -11,12 +11,12 @@ import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news360/src/logic/global/categories.dart';
-import 'package:news360/src/presentation/templates/export.dart';
-import 'package:news360/src/presentation/theme/app_colors.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:spaces/spaces.dart';
 
+import '../../../logic/global/categories.dart';
+import '../../templates/export.dart';
+import '../../theme/app_colors.dart';
+import '../../theme/theme.dart';
 import 'controller/favorite_controller.dart';
 
 class FavoritePage extends GetView<FavoriteController> {

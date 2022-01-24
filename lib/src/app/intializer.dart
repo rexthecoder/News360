@@ -12,10 +12,9 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:loggy/loggy.dart';
-import 'package:news360/src/logic/authentication/auth_configuration.dart';
-import 'package:news360/src/logic/authentication/authentication_controller.dart';
-import 'package:news360/src/logic/logic.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
+
+import '../logic/logic.dart';
+import '../presentation/theme/theme.dart';
 
 Future<void> init() async {
   WidgetsFlutterBinding.ensureInitialized();

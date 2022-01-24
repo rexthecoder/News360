@@ -59,7 +59,7 @@ class FadingEdgeScrollView extends StatefulWidget {
   }) {
     final controller = child.controller;
     if (controller == null) {
-      throw Exception("Child must have controller set");
+      throw Exception('Child must have controller set');
     }
 
     return FadingEdgeScrollView._internal(
@@ -85,7 +85,7 @@ class FadingEdgeScrollView extends StatefulWidget {
   }) {
     final controller = child.controller;
     if (controller == null) {
-      throw Exception("Child must have controller set");
+      throw Exception('Child must have controller set');
     }
 
     return FadingEdgeScrollView._internal(
@@ -132,7 +132,7 @@ class FadingEdgeScrollView extends StatefulWidget {
   }) {
     final controller = child.controller;
     if (controller == null) {
-      throw Exception("Child must have controller set");
+      throw Exception('Child must have controller set');
     }
 
     return FadingEdgeScrollView._internal(
@@ -158,7 +158,7 @@ class FadingEdgeScrollView extends StatefulWidget {
   }) {
     final controller = child.controller;
     if (controller == null) {
-      throw Exception("Child must have controller set");
+      throw Exception('Child must have controller set');
     }
 
     return FadingEdgeScrollView._internal(

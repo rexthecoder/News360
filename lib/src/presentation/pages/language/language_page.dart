@@ -12,11 +12,12 @@ import 'package:awesome_flutter_extensions/all.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news360/src/logic/global/lanaguages_list.dart';
-import 'package:news360/src/presentation/pages/language/controller/lanaguage_controller.dart';
-import 'package:news360/src/presentation/templates/export.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:spaces/spaces.dart';
+
+import '../../../logic/global/lanaguages_list.dart';
+import '../../templates/export.dart';
+import '../../theme/theme.dart';
+import 'controller/lanaguage_controller.dart';
 
 class LanguagePage extends GetView<LanguageController> {
   const LanguagePage({Key? key}) : super(key: key);

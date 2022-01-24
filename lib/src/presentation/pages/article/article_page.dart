@@ -11,14 +11,13 @@ import 'package:awesome_flutter_extensions/all.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:news360/src/logic/global/variables.dart';
-import 'package:news360/src/presentation/templates/export.dart';
-
-import 'package:news360/src/presentation/theme/theme.dart';
-import 'package:news360/src/resources/assets/assets.gen.dart';
 import 'package:skeletons/skeletons.dart';
 import 'package:spaces/spaces.dart';
+
+import '../../../logic/global/variables.dart';
+import '../../../resources/assets/assets.gen.dart';
+import '../../templates/export.dart';
+import '../../theme/theme.dart';
 import 'controller/article_controller.dart';
 
 class ArticlePage extends GetView<ArticleController> {
@@ -157,7 +156,7 @@ class _ArticleChips extends StatelessWidget {
           child: Chip(
             backgroundColor: AppColors.purplePrimary,
             label: AutoSizeText(
-              controller.contents['type'].toString().split(" ").first,
+              controller.contents['type'].toString().split(' ').first,
               style: context.bodyText2.copyWith(
                 color: AppColors.white,
               ),
