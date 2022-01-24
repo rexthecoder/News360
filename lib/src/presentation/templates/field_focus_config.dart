@@ -8,7 +8,7 @@
 
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
+import '../theme/theme.dart';
 
 class FieldWithFocusConfig extends StatelessWidget {
   const FieldWithFocusConfig({
@@ -64,7 +64,7 @@ class FieldWithFocusConfig extends StatelessWidget {
         prefixIcon: Icon(
           prefix,
           size: 22,
-          color: isFocus == "true"
+          color: isFocus == 'true'
               ? AppColors.purplePrimary
               : AppColors.greyPrimary,
         ),
@@ -72,7 +72,7 @@ class FieldWithFocusConfig extends StatelessWidget {
           borderSide: BorderSide(color: AppColors.purplePrimary, width: 1),
           borderRadius: BorderRadius.circular(15),
         ),
-        fillColor: isFocus == "true" ? AppColors.white : AppColors.greyLighter,
+        fillColor: isFocus == 'true' ? AppColors.white : AppColors.greyLighter,
         disabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: AppColors.greyLighter),
           borderRadius: BorderRadius.circular(15),

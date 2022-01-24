@@ -62,7 +62,7 @@ class _RegisterBody extends StatelessWidget {
               child: GestureDetector(
                 onTap: () => Get.back(),
                 child: AutoSizeText(
-                  "Already have an account? Sign In",
+                  'Already have an account? Sign In',
                   style: context.bodyText1.copyWith(
                     color: AppColors.greyPrimary,
                   ),

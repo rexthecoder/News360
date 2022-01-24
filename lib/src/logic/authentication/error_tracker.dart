@@ -7,7 +7,7 @@ mixin ErrorTracker {
     if (e.code == 'weak-password') {
       return 'The password provided is too weak';
     } else if (e.code == 'email-already-in-use') {
-      return "The account already exists for this email";
+      return 'The account already exists for this email';
     } else {
       return '$e';
     }

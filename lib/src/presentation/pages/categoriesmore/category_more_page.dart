@@ -11,14 +11,13 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news360/src/logic/global/variables.dart';
-import 'package:news360/src/presentation/templates/export.dart';
-
-import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:optimized_cached_image/optimized_cached_image.dart';
 import 'package:skeletons/skeletons.dart';
 import 'package:spaces/spaces.dart';
 
+import '../../../logic/global/variables.dart';
+import '../../templates/export.dart';
+import '../../theme/theme.dart';
 import 'controller/category_more_controller.dart';
 
 class CategoryMorePage extends GetView<CategoryMoreController> {
@@ -145,7 +144,7 @@ class CategoryCards extends GetView<CategoryMoreController> {
         child: Row(
           children: [
             Hero(
-              tag: "product$index",
+              tag: 'product$index',
               child: Container(
                 height: 100,
                 width: 100,

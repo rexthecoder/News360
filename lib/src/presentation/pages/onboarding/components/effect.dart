@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../../../theme/theme.dart';
-import 'carousel.dart';
 import 'card_transformer.dart';
+import 'carousel.dart';
 
 class ParallaxCards extends StatelessWidget {
   const ParallaxCards({

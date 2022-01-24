@@ -7,7 +7,8 @@
  */
 
 import 'package:flutter/widgets.dart';
-import 'package:news360/src/presentation/theme/app_colors.dart';
+
+import 'app_colors.dart';
 
 const kHeadline6Style = TextStyle(
   fontSize: 17.0,

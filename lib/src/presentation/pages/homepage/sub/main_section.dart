@@ -10,16 +10,16 @@ import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news360/src/logic/logic.dart';
-import 'package:news360/src/presentation/pages/homepage/components/home_parallax_card.dart';
-import 'package:news360/src/presentation/pages/homepage/components/search_bar.dart';
-import 'package:news360/src/presentation/pages/homepage/controller/home_controller.dart';
-import 'package:news360/src/presentation/pages/onboarding/components/card_transformer.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:skeletons/skeletons.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:spaces/spaces.dart';
 
+import '../../../../logic/logic.dart';
+import '../../../theme/theme.dart';
+import '../../onboarding/components/card_transformer.dart';
+import '../components/home_parallax_card.dart';
+import '../components/search_bar.dart';
+import '../controller/home_controller.dart';
 import '../home_page.dart';
 
 class MainPage extends GetView<HomeController> {

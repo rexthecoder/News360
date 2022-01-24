@@ -2,10 +2,10 @@ import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../templates/export.dart';
-import '../../theme/theme.dart';
 import 'package:spaces/spaces.dart';
 
+import '../../templates/export.dart';
+import '../../theme/theme.dart';
 import 'controller/forget_password_controller.dart';
 
 class ForgetPasswordPage extends GetView<ForgetPasswordController> {

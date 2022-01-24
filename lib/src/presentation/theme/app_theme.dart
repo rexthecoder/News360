@@ -7,10 +7,10 @@
  */
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:news360/src/resources/assets/fonts.gen.dart';
-import 'package:news360/src/presentation/theme/text_styles.dart';
 
+import '../../resources/assets/fonts.gen.dart';
 import 'app_colors.dart';
+import 'text_styles.dart';
 
 /// ThemeMode
 var lightTheme = AppTheme.lightTheme();

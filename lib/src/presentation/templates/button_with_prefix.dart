@@ -1,7 +1,8 @@
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:flutter/material.dart';
-import '../theme/theme.dart';
+
 import '../../resources/assets/assets.gen.dart';
+import '../theme/theme.dart';
 
 class ButtonWithPrefix extends StatelessWidget {
   const ButtonWithPrefix({

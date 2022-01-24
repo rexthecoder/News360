@@ -10,12 +10,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:news360/src/localization/localization_services.dart';
-import 'package:news360/src/logic/authentication/export.dart';
-import 'package:news360/src/logic/global/variables.dart';
-import 'package:news360/src/presentation/theme/app_theme.dart';
 import 'package:spaces/spaces.dart';
 
+import '../localization/localization_services.dart';
+import '../logic/authentication/export.dart';
+import '../logic/global/variables.dart';
 import '../logic/routes/app_pages.dart';
 import '../presentation/theme/app_theme.dart';
 

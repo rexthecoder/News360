@@ -3,15 +3,16 @@ import 'package:awesome_flutter_extensions/all.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../logic/global/profile_list.dart';
-import '../../../../logic/global/variables.dart';
-import '../controller/profile_controller.dart';
-import '../../../templates/export.dart';
-import '../../../theme/theme.dart';
-import '../../../../resources/assets/assets.gen.dart';
 import 'package:spaces/spaces.dart';
 import 'package:switcher/core/switcher_size.dart';
 import 'package:switcher/switcher.dart';
+
+import '../../../../logic/global/profile_list.dart';
+import '../../../../logic/global/variables.dart';
+import '../../../../resources/assets/assets.gen.dart';
+import '../../../templates/export.dart';
+import '../../../theme/theme.dart';
+import '../controller/profile_controller.dart';
 
 class ProfilePage extends GetView<ProfileController> {
   const ProfilePage({Key? key}) : super(key: key);

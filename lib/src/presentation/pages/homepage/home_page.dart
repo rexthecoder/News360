@@ -6,25 +6,24 @@
  *
  */
 
-import 'package:flutter/material.dart';
 import 'package:animated_clipper/animated_clipper.dart';
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:awesome_flutter_extensions/all.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news360/src/logic/global/categories.dart';
-import 'package:news360/src/logic/global/variables.dart';
-import 'package:news360/src/presentation/pages/homepage/sub/main_section.dart';
-
-import 'package:news360/src/presentation/templates/export.dart';
-import 'package:news360/src/presentation/theme/app_colors.dart';
-import 'package:news360/src/presentation/theme/theme.dart';
 import 'package:optimized_cached_image/optimized_cached_image.dart';
 import 'package:spaces/spaces.dart';
 
+import '../../../logic/global/categories.dart';
+import '../../../logic/global/variables.dart';
+import '../../templates/export.dart';
+import '../../theme/app_colors.dart';
+import '../../theme/theme.dart';
 import 'controller/home_controller.dart';
 import 'sub/bookmark_section.dart';
 import 'sub/categories_section.dart';
+import 'sub/main_section.dart';
 import 'sub/profile_section.dart';
 
 /// Steteless Presentation view with nav bar attach to it.
@@ -105,7 +104,7 @@ class ArticleCards extends GetView<HomeController> {
         child: Row(
           children: [
             Hero(
-              tag: "product$index",
+              tag: 'product$index',
               child: Container(
                 height: 100,
                 width: 100,

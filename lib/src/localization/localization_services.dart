@@ -8,8 +8,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news360/src/resources/lang/en_us.dart';
-import 'package:news360/src/resources/lang/fr_ca.dart';
+
+import '../resources/lang/en_us.dart';
+import '../resources/lang/fr_ca.dart';
 
 class LocalizationService extends Translations {
   // Default locale

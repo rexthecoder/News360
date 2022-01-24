@@ -8,8 +8,9 @@
 
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
-import 'package:news360/src/localization/localization_services.dart';
-import 'package:news360/src/logic/global/lanaguages_list.dart';
+
+import '../../../../localization/localization_services.dart';
+import '../../../../logic/global/lanaguages_list.dart';
 
 class LanguageController extends GetxController with UiLoggy {
   Map<int, bool> selectedInterestFavorite = <int, bool>{0: true};
