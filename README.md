@@ -4,8 +4,8 @@
   <a href="#" target="_blank">
     <img alt="License: Rexford Asamoah" src="https://img.shields.io/badge/License-Rexford Asamoah-yellow.svg" />
   </a>
-  <a href="https://twitter.com/Rexthedev" target="_blank">
-    <img alt="Twitter: Rexthedev" src="https://img.shields.io/twitter/follow/Rexthedev.svg?style=social" />
+  <a href="https://twitter.com/rexthecoder" target="_blank">
+    <img alt="Twitter: rexthecoder" src="https://img.shields.io/twitter/follow/rexthecoder.svg?style=social" />
   </a>
 </p>
 
@@ -44,8 +44,8 @@ News360 is a mobile app built with Flutter. Due to fewer couple data around for 
 
 👤 **Rexford Asamoah**
 
-* Twitter: [@Rexthedev](https://twitter.com/Rexthedev)
-* Github: [@Rexfordasamoah51](https://github.com/Rexfordasamoah51)
+* Twitter: [@rexthecoder](https://twitter.com/rexthecoder)
+* Github: [@Rexfordasamoah51](https://github.com/rexthecoder)
 * LinkedIn: [@rexfordasamoah](https://linkedin.com/in/rexfordasamoah)
 
 # License
